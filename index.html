@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A cinematic portfolio concept with a floating skill board, animated cards, and a bold dark aesthetic.">
+  <title>Priyanshu Sharma | Portfolio Concept</title>
+  <link rel="stylesheet" href="./styles.css">
+  
+</head>
+<body data-theme="night">
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-left" aria-hidden="true"></div>
+  <div class="ambient ambient-right" aria-hidden="true"></div>
+  <div class="ambient ambient-bottom" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home">Priyanshu Sharma</a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <!-- Button for toggling color theme -->
+
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="icon icon-sun" aria-hidden="true"></span>
+      </button>
+      
+      <!-- Button for toggling mobile menu -->
+
+      <button class="menu-button" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span>Menu</span>
+        <span class="menu-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <button class="menu-scrim" id="menu-scrim" type="button" aria-label="Close menu"></button>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Hi, I am</p>
+        <h1>Priyanshu<br>Sharma.</h1>
+        <p class="hero-role">Creative developer and AI builder crafting sleek, high-motion websites that feel tactile on screen.</p>
+
+        <div class="hero-actions-row">
+          <a class="primary-button" href="#projects">Explore Work</a>
+          <a class="secondary-button" href="#contact">Hire Me</a>
+        </div>
+
+        <div class="quick-links" aria-label="Quick links">
+          <a href="#skills">Stack</a>
+          <a href="#about">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="skill-board-shell" id="skill-board-shell">
+          <span class="floating-chip chip-top">Motion first</span>
+          <span class="floating-chip chip-left">AI workflows</span>
+          <span class="floating-chip chip-right">Frontend polish</span>
+
+          <div class="skill-board">
+            <div class="keys">
+              <div class="key amber" style="--rise: 0.3rem;">JS</div>
+              <div class="key blue" style="--rise: -0.2rem;">TS</div>
+              <div class="key coral" style="--rise: 0.1rem;">HTML</div>
+              <div class="key purple" style="--rise: -0.15rem;">FIG</div>
+              <div class="key teal" style="--rise: 0.2rem;">AI</div>
+
+              <div class="key slate" style="--rise: -0.1rem;">SQL</div>
+              <div class="key cyan" style="--rise: 0.15rem;">CSS</div>
+              <div class="key green" style="--rise: -0.2rem;">NODE</div>
+              <div class="key graphite" style="--rise: 0.2rem;">UX</div>
+              <div class="key gold" style="--rise: -0.1rem;">API</div>
+
+              <div class="key coral" style="--rise: 0.2rem;">GIT</div>
+              <div class="key slate" style="--rise: -0.15rem;">GH</div>
+              <div class="key deep" style="--rise: 0.25rem;">CMD</div>
+              <div class="key blue" style="--rise: -0.1rem;">NEXT</div>
+              <div class="key green" style="--rise: 0.15rem;">VUE</div>
+
+              <div class="key graphite" style="--rise: -0.05rem;">LINUX</div>
+              <div class="key aqua" style="--rise: 0.12rem;">DOCKER</div>
+              <div class="key lime" style="--rise: -0.12rem;">NPM</div>
+              <div class="key amber" style="--rise: 0.18rem;">AWS</div>
+              <div class="key slate" style="--rise: -0.12rem;">SEO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skill-section" id="skills">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Skill Stack</p>
+        <h2>Built for interfaces that feel fast, deliberate, and a little futuristic.</h2>
+      </div>
+
+      <div class="insight-grid">
+        <article class="glass-card reveal">
+          <p class="card-label">Design Language</p>
+          <h3>Big type. Layered glow. Clean hierarchy.</h3>
+          <p>Every screen leans on contrast, spacing, and motion so the page feels premium before a single click happens.</p>
+        </article>
+
+        <article class="glass-card reveal">
+          <p class="card-label">Build Style</p>
+          <h3>Ship quickly without losing the crafted feel.</h3>
+          <p>I combine lightweight front-end code, reusable components, and subtle interaction details that still perform well.</p>
+        </article>
+
+        <article class="glass-card reveal">
+          <p class="card-label">Workflow</p>
+          <h3>Research, prototype, refine, and polish.</h3>
+          <p>The goal is not just a nice layout. It is a page that guides the eye, sells the work, and feels confident on every screen.</p>
+        </article>
+      </div>
+
+      <div class="skill-ribbon reveal" aria-label="Highlighted capabilities">
+        <span>Landing Pages</span>
+        <span>Portfolio Sites</span>
+        <span>UI Motion</span>
+        <span>Responsive Layouts</span>
+        <span>Dark Aesthetic</span>
+        <span>Performance First</span>
+        <span>Content Systems</span>
+        <span>AI Product UI</span>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Featured Projects</p>
+        <h2>Cards and sections that keep the same cinematic mood as the hero.</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-visual visual-ops">
+            <div class="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="mock-grid">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">Dashboard Design</p>
+            <h3>Realtime Operations Board</h3>
+            <p>A bold monitoring interface with crisp states, layered panels, and enough motion to feel alive without becoming noisy.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-commerce">
+            <div class="visual-copy">Launch Week</div>
+            <div class="visual-pill">Animated Storytelling</div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">Marketing Site</p>
+            <h3>Motion Commerce Landing</h3>
+            <p>Large product framing, high-contrast sections, and CTA placement designed to make a single page feel like a complete campaign.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual visual-lab">
+            <div class="terminal-line wide"></div>
+            <div class="terminal-line mid"></div>
+            <div class="terminal-line short"></div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">AI Product UI</p>
+            <h3>Prompt Workflow Studio</h3>
+            <p>A concept for teams managing prompts, agents, and automations with a visual system that feels technical and modern.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-layout">
+        <div class="section-heading reveal">
+          <p class="section-kicker">About The Build</p>
+          <h2>Original code, similar energy.</h2>
+          <p class="about-copy">This project was built from scratch to echo the reference mood: dark space, oversized typography, a floating skill board, and layered project cards. It is not a copy of the original site markup. It is a fresh implementation you can now customize with your own text, links, and real projects.</p>
+        </div>
+
+        <div class="timeline-card reveal">
+          <div class="timeline-item">
+            <span>01</span>
+            <div>
+              <h3>Hero First</h3>
+              <p>A clear introduction on the left, with the visual centerpiece carrying the right side of the screen.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span>02</span>
+            <div>
+              <h3>Depth Through Layers</h3>
+              <p>Blurs, glows, shadows, and glass panels create the same immersive feel as the reference video.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span>03</span>
+            <div>
+              <h3>Ready To Personalize</h3>
+              <p>Swap in your resume link, project screenshots, GitHub, and social URLs without restructuring the layout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-card reveal">
+        <p class="section-kicker">Let's Build</p>
+        <h2>Want this turned into your full personal portfolio?</h2>
+        <p>I can adapt this exact structure with your real name, project screenshots, resume, and social links so it feels fully yours.</p>
+        <div class="hero-actions-row">
+          <a class="primary-button" href="#home">Back To Top</a>
+          <a class="secondary-button" href="#projects">See Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Portfolio concept built with HTML, CSS, and vanilla JavaScript.</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

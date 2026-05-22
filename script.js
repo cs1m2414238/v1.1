@@ -1,0 +1,164 @@
+const body = document.body;
+const progressBar = document.querySelector("#progress-bar");
+const menuToggle = document.querySelector("#menu-toggle");
+const mobileMenu = document.querySelector("#mobile-menu");
+const menuScrim = document.querySelector("#menu-scrim");
+const themeToggle = document.querySelector("#theme-toggle");
+const starfield = document.querySelector("#starfield");
+const boardShell = document.querySelector("#skill-board-shell");
+const revealItems = document.querySelectorAll(".reveal");
+const icon = themeToggle ? themeToggle.querySelector(".icon") : null;
+
+
+const setMenuState = (open) => {
+  mobileMenu.classList.toggle("is-open", open);
+  menuScrim.classList.toggle("is-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+};
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.contains("is-open");
+  setMenuState(!isOpen);
+});
+
+menuScrim.addEventListener("click", () => setMenuState(false));
+
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setMenuState(false));
+});
+
+//----------------------------------------------------------------- 
+//  Toggle between sun and moon icons function
+
+function updateIcon(theme) {
+  if (!icon) return; // Safety check or prevent crash if icon is not found  
+
+  icon.classList.add("switch-out");
+
+  setTimeout(() => {
+    icon.classList.toggle("icon-moon", theme === "night");
+    icon.classList.toggle("icon-sun", theme !== "night");
+
+    icon.classList.remove("switch-out");
+    icon.classList.add("switch-in");
+
+    setTimeout(() => {
+      icon.classList.remove("switch-in");
+    }, 400);
+
+  }, 200);
+}
+
+// Toggle between "sun" and "moon" icons and theme with View Transitions
+themeToggle.addEventListener("click", (e) => {
+  const nextTheme = body.dataset.theme === "night" ? "dawn" : "night";
+  const isDark = nextTheme === "night";
+
+  if (!document.startViewTransition) {
+    body.dataset.theme = nextTheme;
+    updateIcon(nextTheme);
+    return;
+  }
+
+  const transition = document.startViewTransition(() => {
+    body.dataset.theme = nextTheme;
+  });
+
+  transition.ready.then(() => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Going light → expand new (dawn) from click point (the button)
+    // Going dark  → expand new (night) from the OPPOSITE corner of the screen
+    //               so dark sweeps in from far away, not back into the button
+    const originX = isDark ? (x < window.innerWidth  / 2 ? window.innerWidth  : 0) : x;
+    const originY = isDark ? (y < window.innerHeight / 2 ? window.innerHeight : 0) : y;
+
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${originX}px ${originY}px)`,
+          `circle(${radius}px at ${originX}px ${originY}px)`
+        ]
+      },
+      {
+        duration: 650,
+        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-new(root)"
+      }
+    );
+  });
+
+  // Update icon after transition completes
+  transition.finished.then(() => updateIcon(nextTheme));
+});
+
+// Initial load
+updateIcon(body.dataset.theme);
+
+const renderStars = () => {
+  const fragment = document.createDocumentFragment();
+
+  for (let index = 0; index < 90; index += 1) {
+    const star = document.createElement("span");
+    const size = Math.random() * 2.6 + 0.8;
+    const duration = Math.random() * 6 + 5;
+
+    star.className = "star";
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.animationDuration = `${duration}s`;
+    star.style.animationDelay = `${Math.random() * 6}s`;
+
+    fragment.appendChild(star);
+  }
+
+  starfield.appendChild(fragment);
+};
+
+const updateProgressBar = () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  progressBar.style.width = `${progress}%`;
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.16 });
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+if (boardShell) {
+  boardShell.addEventListener("pointermove", (event) => {
+    const rect = boardShell.getBoundingClientRect();
+    const percentX = (event.clientX - rect.left) / rect.width - 0.5;
+    const percentY = (event.clientY - rect.top) / rect.height - 0.5;
+
+    boardShell.style.setProperty("--tilt-x", `${percentY * -7}deg`);
+    boardShell.style.setProperty("--tilt-z", `${percentX * 9}deg`);
+  });
+
+  boardShell.addEventListener("pointerleave", () => {
+    boardShell.style.setProperty("--tilt-x", "0deg");
+    boardShell.style.setProperty("--tilt-z", "0deg");
+  });
+}
+
+window.addEventListener("scroll", updateProgressBar, { passive: true });
+window.addEventListener("load", updateProgressBar);
+
+renderStars();
+updateProgressBar();
