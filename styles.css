@@ -17,13 +17,15 @@
 
 /* View Transition */
 ::view-transition-old(root),
-::view-transition-new(root){
+::view-transition-new(root) {
   animation: none;
 }
-::view-transition-old(root){
+
+::view-transition-old(root) {
   z-index: 1;
 }
-::view-transition-new(root){
+
+::view-transition-new(root) {
   z-index: 2;
 }
 
@@ -48,6 +50,273 @@ body[data-theme="dawn"] {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* =========================
+  STYLE HEADER
+========================= */
+
+.site-header {
+
+  position: fixed;
+
+  top: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  width: min(1100px, calc(100% - 32px));
+
+  padding: 14px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 12px;
+
+  background: rgba(10, 12, 18, 0);
+
+  border: 1px solid transparent;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: none;
+
+  transition:
+    width .35s ease,
+    padding .35s ease,
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    backdrop-filter .35s ease,
+    -webkit-backdrop-filter .35s ease,
+    top .35s ease,
+    box-shadow .35s ease;
+}
+
+/* SCROLL EFFECT */
+
+.site-header.scrolled {
+
+  top: 10px;
+
+  width: min(850px, calc(100% - 32px));
+
+  padding: 10px 24px;
+
+  background: rgba(10, 12, 18, 0.55);
+
+  border-color: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+body[data-theme="dawn"] .site-header.scrolled {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(18, 21, 31, 0.08);
+  box-shadow: 0 8px 32px rgba(94, 78, 38, 0.1);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease, color 0.35s ease;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+.desktop-nav a {
+  position: relative;
+
+  text-decoration: none;
+  color: var(--muted);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.desktop-nav a:hover {
+  color: var(--text);
+}
+
+/* smooth underline */
+
+.desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: var(--text);
+
+  transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-button,
+.menu-button {
+
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  outline: none;
+
+  cursor: pointer;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border-radius: 8px;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: none;
+
+  transition: all 0.3s ease;
+}
+
+body[data-theme="dawn"] .icon-button,
+body[data-theme="dawn"] .menu-button {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text);
+  box-shadow: none;
+}
+
+/* theme button overrides */
+.icon-button {
+  /* Inherits dimensions and shape */
+}
+
+/* menu button overrides */
+.menu-button {
+  /* Inherits dimensions and shape */
+}
+
+.icon-button:hover,
+.menu-button:hover {
+
+  background: rgba(255, 255, 255, 0.14);
+
+  transform: translateY(-1px);
+}
+
+body[data-theme="dawn"] .icon-button:hover,
+body[data-theme="dawn"] .menu-button:hover {
+  background: rgba(18, 21, 31, 0.12);
+}
+
+/* scrolled button overrides to blend with glass header */
+
+.site-header.scrolled .icon-button,
+.site-header.scrolled .menu-button {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* scrolled header overrides removed */
+
+/* =========================
+   MENU ICON
+========================= */
+
+.menu-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-lines span {
+
+  width: 18px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .site-header {
+    width: calc(100% - 16px);
+    padding: 12px 18px;
+  }
+
+  .site-header.scrolled {
+    width: calc(100% - 16px);
+    padding: 10px 16px;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
 }
 
 body {
@@ -145,77 +414,13 @@ button {
   background: radial-gradient(circle at 50% 100%, rgba(255, 181, 83, 0.1), transparent 24rem);
 }
 
-.site-header,
-.section,
-.site-footer {
-  width: min(1180px, calc(100% - 2rem));
-  margin-inline: auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 0;
-  backdrop-filter: blur(18px);
-}
-
-.brand,
-.desktop-nav a,
-.menu-button,
-.icon-button {
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.22);
-}
-
-.brand {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 0.7rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(8, 10, 18, 0.22);
-  backdrop-filter: blur(18px);
-}
-
-.desktop-nav a {
-  color: var(--muted);
-  font-size: 0.95rem;
-  transition: color 180ms ease;
-}
-
-.desktop-nav a:hover,
-.desktop-nav a:focus-visible {
-  color: var(--text);
-}
-
 .header-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.icon-button,
-.menu-button,
-.quick-links a,
-.primary-button,
-.secondary-button {
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--text);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-}
+
 
 .icon-button,
 .menu-button {
@@ -223,16 +428,18 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  min-height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .icon-button {
   position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -240,12 +447,18 @@ button {
   transition: all 0.3s ease;
 }
 
+body[data-theme="dawn"] .icon-button {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
 /* Glow effect */
 .icon-button::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 50%;
+  border-radius: 8px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -259,6 +472,9 @@ button {
 /* Transition from moon to sun */
 
 .icon {
+  border-radius: 10px;
+  border-color: gray;
+  background-color: transparent;
   font-size: 20px;
   transition: transform 0.5s ease, opacity 0.4s ease;
 }
@@ -294,8 +510,19 @@ button {
 /* Menu Button */
 
 .menu-button {
-  padding: 0 1rem;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+body[data-theme="dawn"] .menu-button {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
 .menu-lines {
@@ -365,11 +592,14 @@ button {
 }
 
 .section {
-  padding: clamp(3rem, 5vw, 5rem) 0;
+  width: min(1450px, 100%);
+  margin-inline: auto;
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.2rem, 5vw, 2.5rem);
 }
 
 .hero {
   display: grid;
+  margin-top: 60px;
   grid-template-columns: minmax(0, 1fr) minmax(340px, 0.95fr);
   align-items: center;
   gap: clamp(2rem, 4vw, 4rem);
@@ -856,7 +1086,9 @@ body[data-theme="dawn"] .primary-button {
 }
 
 .site-footer {
-  padding: 0 0 2rem;
+  width: min(1200px, 100%);
+  margin-inline: auto;
+  padding: 0 clamp(1.2rem, 5vw, 2.5rem) 2rem;
   color: var(--muted);
   text-align: center;
 }
@@ -912,6 +1144,7 @@ body[data-theme="dawn"] .primary-button {
   .section,
   .site-footer {
     width: min(1180px, calc(100% - 1.2rem));
+    margin-inline: auto;
   }
 
   .site-header {
