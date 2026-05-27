@@ -1,0 +1,90 @@
+/* =========================
+   PRELOADER WELCOME SCREEN
+========================= */
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: #14151a; /* Sleek rich dark slate matches night theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* Let the loading-round curve hang below */
+}
+
+/* Curved edge reveal wrapper */
+.loading-round {
+  position: absolute;
+  height: 30vh; /* Deep curve height for extra premium look */
+  width: 100vw;
+  top: 99%;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Curved ellipse backdrop */
+.curve {
+  height: 200%;
+  width: 150%;
+  background: #14151a;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+/* =========================
+   MULTILINGUAL TEXT STYLING
+========================= */
+
+.text {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  height: 100px;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Preloader leading indicator dot */
+.welcome-text .dot {
+  width: 10px;
+  height: 10px;
+  background: #f4f7fb;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.welcome-text h2 {
+  color: #f4f7fb;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  font-family: var(--body-font);
+}
+
+/* =========================
+   SCROLL LOCK
+========================= */
+
+body.lock-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}

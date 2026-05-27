@@ -274,6 +274,38 @@ body[data-theme="dawn"] .menu-button:hover {
 /* scrolled header overrides removed */
 
 /* =========================
+   GITHUB BUTTON
+========================= */
+
+.gitHub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  color: var(--text);
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gitHub:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+body[data-theme="dawn"] .gitHub:hover {
+  background: rgba(18, 21, 31, 0.12);
+}
+
+.gitHub:active {
+  transform: scale(0.95);
+}
+
+/* =========================
    MENU ICON
 ========================= */
 

@@ -6,9 +6,50 @@
   <meta name="description" content="A cinematic portfolio concept with a floating skill board, animated cards, and a bold dark aesthetic.">
   <title>Priyanshu Sharma | Portfolio Concept</title>
   <link rel="stylesheet" href="./styles.css">
-  
+  <link rel="stylesheet" href="./css/welcome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
-<body data-theme="night">
+<body class="lock-scroll" data-theme="night">
+  <div class="loading">
+    <div class="text">
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>Hello</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>Bonjour</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>नमस्ते</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>Hola</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>こんにちは</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>안녕하세요</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>Ciao</h2>
+      </div>
+      <div class="welcome-text">
+        <div class="dot"></div>
+        <h2>مرحبا</h2>
+      </div>
+    </div>
+    <div class="loading-round">
+      <div class="curve"></div>
+    </div>
+  </div>
+
   <div class="progress-track" aria-hidden="true">
     <div class="progress-bar" id="progress-bar"></div>
   </div>
@@ -30,6 +71,10 @@
     </nav>
 
     <div class="header-actions">
+      <a class="gitHub" id="gitHubbutton" href="https://github.com/cs1m2414238" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
 
       <!-- Button for toggling color theme -->
 
@@ -259,6 +304,12 @@
   <footer class="site-footer">
     <p>Portfolio concept built with HTML, CSS, and vanilla JavaScript.</p>
   </footer>
+
+  <!-- Load external libraries first -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+  <!-- Preloader welcome animation -->
+  <script src="./js/welcome.js"></script>
 
   <script src="./script.js"></script>
 </body>

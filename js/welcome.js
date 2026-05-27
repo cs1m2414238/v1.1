@@ -1,0 +1,72 @@
+window.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const welcomeTexts = gsap.utils.toArray(".welcome-text");
+  const targetElements = [".site-header", "main", ".site-footer"];
+  const loadingScreen = document.querySelector(".loading");
+
+  if (!loadingScreen || welcomeTexts.length === 0) return;
+
+  // Lock user scroll while loading
+  body.classList.add("lock-scroll");
+
+  // Prepare initial states
+  gsap.set(targetElements, { y: 40, opacity: 0 });
+
+  // Create preloader timeline
+  const timeline = gsap.timeline({
+    defaults: { ease: "power2.inOut" },
+    onComplete: () => {
+      // Clean up preloader and restore scrolling once animation concludes
+      body.classList.remove("lock-scroll");
+      if (loadingScreen) loadingScreen.remove();
+      window.dispatchEvent(new CustomEvent("preloaderFinished"));
+      console.log("Welcome screen animation completed.");
+    }
+  });
+
+  // Multilingual text cross-fade cycle
+  welcomeTexts.forEach((text, index) => {
+    const isFirst = index === 0;
+    const isLast = index === welcomeTexts.length - 1;
+    
+    // Snellenberg pacing: hold first and last words slightly longer
+    const holdTime = isFirst ? 0.65 : isLast ? 0.65 : 0.15;
+
+    if (isFirst) {
+      timeline.to(text, { opacity: 1, duration: 0.5, ease: "power2.out", delay: 0.5 });
+    } else {
+      timeline.set(text, { opacity: 1 });
+    }
+
+    if (!isLast) {
+      timeline.set(text, { opacity: 0 }, `+=${holdTime}`);
+    }
+  });
+
+  // Slide up greeting container
+  timeline.to(".text", {
+    y: -60,
+    opacity: 0,
+    duration: 0.5,
+    ease: "power3.inOut"
+  }, "+=0.3");
+
+  // Exit transition sequence: slide up preloader, flatten bottom curve, reveal main content
+  timeline.to(loadingScreen, {
+    y: "-100%",
+    duration: 0.95,
+    ease: "expo.out"
+  }, "-=0.15")
+  .to(".loading-round", {
+    height: 0,
+    duration: 0.95,
+    ease: "expo.out"
+  }, "-=0.65")
+  .to(targetElements, {
+    y: 0,
+    opacity: 1,
+    duration: 0.95,
+    ease: "expo.out",
+    stagger: 0.05
+  }, "-=0.88");
+});
