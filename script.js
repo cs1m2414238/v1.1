@@ -11,21 +11,27 @@ const icon = themeToggle ? themeToggle.querySelector(".icon") : null;
 
 
 const setMenuState = (open) => {
-  mobileMenu.classList.toggle("is-open", open);
-  menuScrim.classList.toggle("is-open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
+  if (mobileMenu) mobileMenu.classList.toggle("is-open", open);
+  if (menuScrim) menuScrim.classList.toggle("is-open", open);
+  if (menuToggle) menuToggle.setAttribute("aria-expanded", String(open));
 };
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = mobileMenu.classList.contains("is-open");
-  setMenuState(!isOpen);
-});
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu ? mobileMenu.classList.contains("is-open") : false;
+    setMenuState(!isOpen);
+  });
+}
 
-menuScrim.addEventListener("click", () => setMenuState(false));
+if (menuScrim) {
+  menuScrim.addEventListener("click", () => setMenuState(false));
+}
 
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => setMenuState(false));
-});
+if (mobileMenu) {
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuState(false));
+  });
+}
 
 //----------------------------------------------------------------- 
 //  Toggle between sun and moon icons function

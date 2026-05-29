@@ -6,17 +6,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (!loadingScreen || welcomeTexts.length === 0) return;
 
-  // Lock user scroll while loading
+  // lock user scroll while loading
   body.classList.add("lock-scroll");
 
-  // Prepare initial states
+  // prepare initial states
   gsap.set(targetElements, { y: 40, opacity: 0 });
 
-  // Create preloader timeline
+  // create preloader timeline
   const timeline = gsap.timeline({
     defaults: { ease: "power2.inOut" },
     onComplete: () => {
-      // Clean up preloader and restore scrolling once animation concludes
+      // clean up preloader and restore scrolling once animation concludes
+      //  to bring back scroll functionality
       body.classList.remove("lock-scroll");
       if (loadingScreen) loadingScreen.remove();
       window.dispatchEvent(new CustomEvent("preloaderFinished"));
@@ -24,12 +25,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Multilingual text cross-fade cycle
+  // multilingual text cross-fade cycle
   welcomeTexts.forEach((text, index) => {
     const isFirst = index === 0;
     const isLast = index === welcomeTexts.length - 1;
     
-    // Snellenberg pacing: hold first and last words slightly longer
+    // hold first and last words slightly longer
     const holdTime = isFirst ? 0.65 : isLast ? 0.65 : 0.15;
 
     if (isFirst) {
@@ -43,7 +44,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Slide up greeting container
+  // slide up greeting container
   timeline.to(".text", {
     y: -60,
     opacity: 0,
@@ -51,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ease: "power3.inOut"
   }, "+=0.3");
 
-  // Exit transition sequence: slide up preloader, flatten bottom curve, reveal main content
+  // exit transition sequence
   timeline.to(loadingScreen, {
     y: "-100%",
     duration: 0.95,

@@ -1196,11 +1196,6 @@ body[data-theme="dawn"] .primary-button {
     font-size: clamp(2rem, 11vw, 3.3rem);
   }
 
-  .key {
-    min-height: 3.35rem;
-    font-size: 0.68rem;
-  }
-
   .floating-chip {
     font-size: 0.72rem;
   }
