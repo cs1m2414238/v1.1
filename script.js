@@ -178,7 +178,54 @@ if (boardShell) {
 }
 
 window.addEventListener("scroll", updateProgressBar, { passive: true });
-window.addEventListener("load", updateProgressBar);
+window.addEventListener("load", () => {
+  updateProgressBar();
+  const skillShell = document.querySelector('.skill-board-shell');
+  if (skillShell) {
+    skillShell.classList.add('glow-active');
+    setTimeout(() => skillShell.classList.remove('glow-active'), 2100);
+  }
+});
+
+// Keyboard and click interactive features for the skill keys
+const keysList = document.querySelectorAll(".key");
+const physicalKeys = [
+  "KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", // Row 1
+  "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", // Row 2
+  "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", // Row 3
+  "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB"  // Row 4
+];
+
+// Keypress event listeners
+window.addEventListener("keydown", (event) => {
+  const index = physicalKeys.indexOf(event.code);
+  if (index !== -1 && keysList[index]) {
+    keysList[index].classList.add("is-pressed");
+  }
+});
+
+window.addEventListener("keyup", (event) => {
+  const index = physicalKeys.indexOf(event.code);
+  if (index !== -1 && keysList[index]) {
+    keysList[index].classList.remove("is-pressed");
+  }
+});
+
+// Virtual key click event listeners
+keysList.forEach((keyEl) => {
+  keyEl.addEventListener("pointerdown", (e) => {
+    keyEl.classList.add("is-pressed");
+    e.preventDefault();
+  });
+  
+  const release = () => {
+    keyEl.classList.remove("is-pressed");
+  };
+  
+  keyEl.addEventListener("pointerup", release);
+  keyEl.addEventListener("pointerleave", release);
+  keyEl.addEventListener("pointercancel", release);
+});
 
 renderStars();
 updateProgressBar();
