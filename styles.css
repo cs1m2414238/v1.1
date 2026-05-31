@@ -1046,6 +1046,18 @@ body[data-theme="dawn"] .quick-links a:hover {
 .graphite .key-legend-qwerty {
   color: var(--key-color);
 }
+.key.is-lit {
+    filter: brightness(1.4);
+
+    box-shadow:
+        var(--key-glow),
+        0 0 20px var(--key-glow-color),
+        0 0 40px var(--key-glow-color);
+
+    transition:
+        box-shadow 1s ease,
+        filter 2s ease;
+}
 
 /* Base key colors for Cream Keyboard (Default / Dark Mode) */
 .amber {

@@ -4,12 +4,17 @@ function runLightingWave() {
   keys.forEach((key, index) => {
     // Stagger the activation of each key
     setTimeout(() => {
-      key.classList.add("is-pressed");
-      
-      // Release the key physically and turn off its light after a short delay
-      setTimeout(() => {
-        key.classList.remove("is-pressed");
-      }, 250);
+
+        key.classList.add("is-lit");
+        key.classList.add("is-pressed");
+          
+        // Release the key physically and turn off its light after a short delay
+        setTimeout(() => {
+            key.classList.remove("is-pressed");
+        }, 250);
+        setTimeout(() => {
+            key.classList.remove("is-lit");
+        }, 400);
     }, index * 60);
   });
 }
