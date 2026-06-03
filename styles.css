@@ -956,10 +956,14 @@ body[data-theme="dawn"] .quick-links a:hover {
   transition: filter 0.15s ease, transform 0.15s ease;
 }
 
-.key:hover i,
-.key.is-pressed i {
-  filter: drop-shadow(0 0 6px var(--key-glow-color, var(--key-color))) drop-shadow(0 0 12px var(--key-glow-color, var(--key-color)));
+.key i.fa-terminal.cursor-active {
+  animation: terminal-cursor-blink 1.2s infinite step-end;
 }
+
+body:not([data-theme="dawn"]) .key.is-lit {
+    background: linear-gradient(135deg, #fffcf0, #f8ebd0);
+}
+
 
 .key:hover {
     transform: translateZ(20px);
@@ -1013,12 +1017,12 @@ body[data-theme="dawn"] .quick-links a:hover {
     background: #ded6c3;
     transform: translateZ(-16px);
     z-index: -1;
-    box-shadow: 0 0 18px 2px var(--key-underglow, transparent);
     transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1.15), background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .key:hover::before {
     transform: translateZ(-20px);
+    box-shadow: 0 0 18px 2px var(--key-underglow, transparent);
 }
 
 .key:active::before,
@@ -1046,115 +1050,88 @@ body[data-theme="dawn"] .quick-links a:hover {
 .graphite .key-legend-qwerty {
   color: var(--key-color);
 }
-.key.is-lit {
-    filter: brightness(1.4);
-
-    box-shadow:
-        var(--key-glow),
-        0 0 20px var(--key-glow-color),
-        0 0 40px var(--key-glow-color);
-
-    transition:
-        box-shadow 1s ease,
-        filter 2s ease;
-}
-
 /* Base key colors for Cream Keyboard (Default / Dark Mode) */
 .amber {
   --key-color: #d97706;
   --key-glow-color: #fbbf24;
-  --key-glow: 0 0 6px rgba(217, 119, 6, 0.45);
   --key-underglow: rgba(251, 191, 36, 0.22);
 }
 
 .blue {
   --key-color: #2563eb;
   --key-glow-color: #60a5fa;
-  --key-glow: 0 0 6px rgba(37, 99, 235, 0.45);
   --key-underglow: rgba(96, 105, 250, 0.22);
 }
 
 .coral {
   --key-color: #e11d48;
   --key-glow-color: #fb7185;
-  --key-glow: 0 0 6px rgba(225, 29, 72, 0.45);
   --key-underglow: rgba(251, 113, 133, 0.22);
 }
 
 .purple {
   --key-color: #9333ea;
   --key-glow-color: #c084fc;
-  --key-glow: 0 0 6px rgba(147, 51, 234, 0.45);
   --key-underglow: rgba(192, 132, 252, 0.22);
 }
 
 .teal {
   --key-color: #0d9488;
   --key-glow-color: #2dd4bf;
-  --key-glow: 0 0 6px rgba(13, 148, 136, 0.45);
   --key-underglow: rgba(45, 212, 191, 0.22);
 }
 
 .slate {
   --key-color: #475569;
   --key-glow-color: #94a3b8;
-  --key-glow: 0 0 4px rgba(71, 85, 105, 0.3);
   --key-underglow: rgba(148, 163, 184, 0.1);
 }
 
 .cyan {
   --key-color: #0891b2;
   --key-glow-color: #22d3ee;
-  --key-glow: 0 0 6px rgba(8, 145, 178, 0.45);
   --key-underglow: rgba(34, 211, 238, 0.22);
 }
 
 .green {
   --key-color: #059669;
   --key-glow-color: #34d399;
-  --key-glow: 0 0 6px rgba(5, 150, 105, 0.45);
   --key-underglow: rgba(52, 211, 153, 0.22);
 }
 
 .graphite {
   --key-color: #374151;
   --key-glow-color: #6b7280;
-  --key-glow: 0 0 4px rgba(55, 65, 81, 0.3);
   --key-underglow: rgba(107, 114, 128, 0.08);
 }
 
 .white {
   --key-color: #1e293b;
   --key-glow-color: #cbd5e1;
-  --key-glow: 0 0 4px rgba(30, 41, 59, 0.3);
   --key-underglow: rgba(203, 213, 225, 0.1);
 }
 
 .gold {
   --key-color: #b45309;
   --key-glow-color: #f59e0b;
-  --key-glow: 0 0 6px rgba(180, 83, 9, 0.45);
   --key-underglow: rgba(245, 158, 11, 0.22);
 }
 
 .deep {
   --key-color: #0f172a;
   --key-glow-color: #475569;
-  --key-glow: 0 0 4px rgba(15, 23, 42, 0.35);
   --key-underglow: rgba(71, 85, 105, 0.08);
 }
 
 .aqua {
   --key-color: #0284c7;
   --key-glow-color: #38bdf8;
-  --key-glow: 0 0 6px rgba(2, 132, 199, 0.45);
   --key-underglow: rgba(56, 189, 248, 0.22);
 }
 
 .lime {
   --key-color: #4d7c0f;
   --key-glow-color: #a3e635;
-  --key-glow: 0 0 6px rgba(77, 124, 15, 0.45);
   --key-underglow: rgba(163, 230, 53, 0.22);
 }
 
@@ -1259,98 +1236,84 @@ body[data-theme="dawn"] .key-legend-qwerty {
 body[data-theme="dawn"] .amber {
   --key-color: #fbbf24;
   --key-glow-color: #fbbf24;
-  --key-glow: 0 0 6px rgba(251, 191, 36, 0.7);
   --key-underglow: rgba(251, 191, 36, 0.2);
 }
 
 body[data-theme="dawn"] .blue {
   --key-color: #60a5fa;
   --key-glow-color: #60a5fa;
-  --key-glow: 0 0 6px rgba(96, 165, 250, 0.7);
   --key-underglow: rgba(96, 165, 250, 0.2);
 }
 
 body[data-theme="dawn"] .coral {
   --key-color: #fb7185;
   --key-glow-color: #fb7185;
-  --key-glow: 0 0 6px rgba(251, 113, 133, 0.7);
   --key-underglow: rgba(251, 113, 133, 0.2);
 }
 
 body[data-theme="dawn"] .purple {
   --key-color: #c084fc;
   --key-glow-color: #c084fc;
-  --key-glow: 0 0 6px rgba(192, 132, 252, 0.7);
   --key-underglow: rgba(192, 132, 252, 0.2);
 }
 
 body[data-theme="dawn"] .teal {
   --key-color: #2dd4bf;
-  --key-glow-color: #2dd4bf;
-  --key-glow: 0 0 6px rgba(45, 212, 191, 0.7);
+  /* --key-glow-color: #2dd4bf; */
   --key-underglow: rgba(45, 212, 191, 0.2);
 }
 
 body[data-theme="dawn"] .slate {
- --key-color: #ffffff;
+  --key-color: #ffffff;
   --key-glow-color: #ffffff;
-  --key-glow: 0 0 6px rgba(255, 255, 255, 0.85);
   --key-underglow: rgba(255, 255, 255, 0.15);
 }
 
 body[data-theme="dawn"] .cyan {
   --key-color: #22d3ee;
   --key-glow-color: #22d3ee;
-  --key-glow: 0 0 6px rgba(34, 211, 238, 0.7);
   --key-underglow: rgba(34, 211, 238, 0.2);
 }
 
 body[data-theme="dawn"] .green {
   --key-color: #34d399;
   --key-glow-color: #34d399;
-  --key-glow: 0 0 6px rgba(52, 211, 153, 0.7);
   --key-underglow: rgba(52, 211, 153, 0.2);
 }
 
 body[data-theme="dawn"] .graphite {
- --key-color: #ffffff;
+  --key-color: #ffffff;
   --key-glow-color: #ffffff;
-  --key-glow: 0 0 6px rgba(255, 255, 255, 0.85);
   --key-underglow: rgba(255, 255, 255, 0.15);
 }
 
 body[data-theme="dawn"] .white {
   --key-color: #ffffff;
   --key-glow-color: #ffffff;
-  --key-glow: 0 0 6px rgba(255, 255, 255, 0.85);
   --key-underglow: rgba(255, 255, 255, 0.15);
 }
 
 body[data-theme="dawn"] .gold {
   --key-color: #fbbf24;
   --key-glow-color: #fbbf24;
-  --key-glow: 0 0 6px rgba(251, 191, 36, 0.7);
   --key-underglow: rgba(251, 191, 36, 0.2);
 }
 
 body[data-theme="dawn"] .deep {
   --key-color: #ffffff;
   --key-glow-color: #ffffff;
-  --key-glow: 0 0 6px rgba(255, 255, 255, 0.85);
   --key-underglow: rgba(255, 255, 255, 0.15);
 }
 
 body[data-theme="dawn"] .aqua {
   --key-color: #38bdf8;
   --key-glow-color: #38bdf8;
-  --key-glow: 0 0 6px rgba(56, 189, 248, 0.7);
   --key-underglow: rgba(56, 189, 248, 0.2);
 }
 
 body[data-theme="dawn"] .lime {
   --key-color: #a3e635;
   --key-glow-color: #a3e635;
-  --key-glow: 0 0 6px rgba(163, 230, 53, 0.7);
   --key-underglow: rgba(163, 230, 53, 0.2);
 }
 
@@ -1777,11 +1740,11 @@ body[data-theme="dawn"] .timeline-item span {
     border-radius: 8px;
     transform: translateZ(-8px);
     background: #ded6c3;
-    box-shadow: 0 0 12px 1px var(--key-underglow, transparent);
   }
 
   .key:hover::before {
     transform: translateZ(-10px);
+    box-shadow: 0 0 12px 1px var(--key-underglow, transparent);
   }
 
   .key:active::before,
@@ -1869,4 +1832,36 @@ body[data-theme="dawn"] .timeline-item span {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Keyboard boot loading animations */
+@keyframes retro-flicker-legend {
+  0% { opacity: 0; }
+  10% { opacity: 0.4; }
+  15% { opacity: 0; }
+  25% { opacity: 0.55; }
+  30% { opacity: 0.1; }
+  35% { opacity: 0; }
+  45% { opacity: 0.55; }
+  55% { opacity: 0.15; }
+  65% { opacity: 0.55; }
+  100% { opacity: 0.55; }
+}
+
+@keyframes retro-flicker-logo {
+  0% { opacity: 0; }
+  10% { opacity: 0.6; }
+  15% { opacity: 0; }
+  25% { opacity: 0.85; }
+  30% { opacity: 0.2; }
+  35% { opacity: 0; }
+  45% { opacity: 1; }
+  55% { opacity: 0.3; }
+  65% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes terminal-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
