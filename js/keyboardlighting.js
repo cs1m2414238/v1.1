@@ -43,6 +43,9 @@ function runBootAnimation() {
       // Clear inline opacity so standard hover state transition works
       gsap.set(".key-legend-qwerty", { clearProps: "opacity" });
       gsap.set(".key i", { clearProps: "opacity" });
+      
+      // Clear inline transform on the skill board so the CSS 3D hover/tilt works
+      gsap.set(".skill-board", { clearProps: "transform" });
 
       // Enable the terminal continuous prompt cursor blink
       const termIcon = document.querySelector(".key i.fa-terminal");
