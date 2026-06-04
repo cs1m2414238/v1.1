@@ -115,23 +115,23 @@
         </div>
 
         <div class="quick-links" aria-label="Quick links">
-          <a href="#skills">Stack</a>
+          <!-- <a href="#skills">Stack</a>
           <a href="#about">Process</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Contact</a> -->
         </div>
       </div>
       <div class="hero-visual reveal">
         <div class="skill-board-shell" id="skill-board-shell">
           <div class="skill-board">
             <div class="keys">
-              <div class="key amber" style="--rise: 0.3rem;"><i class="fa-brands fa-js" aria-label="JS"></i><span
-                  class="key-legend-qwerty">JS</span></div>
-              <div class="key blue" style="--rise: -0.2rem;"><i class="fa-solid fa-code" aria-label="TS"></i><span
-                  class="key-legend-qwerty">TS</span></div>
+              <div class="key coral" style="--rise: 0.3rem;"><i class="fa-brands fa-java" aria-label="JAVA"></i><span
+                  class="key-legend-qwerty">JAVA</span></div>
+              <div class="key slate" style="--rise: -0.2rem;"><i class="fa-solid fa-c" aria-label="C"></i><span
+                  class="key-legend-qwerty">C</span></div>
               <div class="key coral" style="--rise: 0.1rem;"><i class="fa-brands fa-html5" aria-label="HTML"></i><span
                   class="key-legend-qwerty">HTML</span></div>
-              <div class="key purple" style="--rise: -0.15rem;"><i class="fa-brands fa-figma" aria-label="FIG"></i><span
-                  class="key-legend-qwerty">FIGMA</span></div>
+              <div class="key blue" style="--rise: -0.15rem;"><i class="fa-brands fa-python"
+                  aria-label="PYTHON"></i><span class="key-legend-qwerty">PYTHON</span></div>
               <div class="key teal" style="--rise: 0.2rem;"><i class="fa-solid fa-brain" aria-label="AI"></i><span
                   class="key-legend-qwerty">AI</span></div>
 
@@ -139,8 +139,8 @@
                   class="key-legend-qwerty">SQL</span></div>
               <div class="key cyan" style="--rise: 0.15rem;"><i class="fa-brands fa-css3-alt" aria-label="CSS"></i><span
                   class="key-legend-qwerty">CSS</span></div>
-              <div class="key green" style="--rise: -0.2rem;"><i class="fa-brands fa-node-js"
-                  aria-label="NODE"></i><span class="key-legend-qwerty">NODE</span></div>
+              <div class="key amber" style="--rise: -0.2rem;"><i class="fa-brands fa-js" aria-label="JS"></i><span
+                  class="key-legend-qwerty">JS</span></div>
               <div class="key graphite" style="--rise: 0.2rem;"><i class="fa-solid fa-bezier-curve"
                   aria-label="UX"></i><span class="key-legend-qwerty">UX</span></div>
               <div class="key gold" style="--rise: -0.1rem;"><i class="fa-solid fa-gears" aria-label="API"></i><span
@@ -173,32 +173,158 @@
       </div>
     </section>
 
-    <section class="section skill-section" id="skills">
+
+
+     <section class="learning-stacktree section" id="learning-stacktree">
       <div class="section-heading reveal">
-        <p class="section-kicker">Skill Stack</p>
-        <h2>Built for interfaces that feel fast, deliberate, and a little futuristic.</h2>
+        <p class="section-kicker">Stack Tree</p>
+      </div>
+      <!-- Stack Tree Diagram -->
+      <div class="stack-tree reveal">
+        <!-- Root Node -->
+        <div class="stack-root">
+          <span>FULL STACK DEV</span>
+        </div>
+        <!-- Connector line from root down ,its  vertical  -->
+        <div class="stack-root-line"></div>
+        <!-- Horizontal branch line -->
+        <div class="stack-branch-line"></div>
+        <!-- 5 Category Pillars -->
+        <div class="stack-categories">
+          <!-- Front-End -->
+          <div class="stack-col">
+            <div class="stack-col-line"></div>
+            <div class="stack-category-node">
+              <i class="fa-solid fa-display"></i>
+              <span>FRONT-END DEV</span>
+            </div>
+            <i class="fa-solid fa-chevron-down stack-chevron"></i>
+            <div class="stack-tech-chips">
+              <span class="tech-chip"><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span class="tech-chip"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              <span class="tech-chip"><i class="fa-brands fa-js"></i> JS</span>
+              <span class="tech-chip"><i class="fa-brands fa-react"></i> React</span>
+            </div>
+          </div>
+          <!-- Back-End -->
+          <div class="stack-col">
+            <div class="stack-col-line"></div>
+            <div class="stack-category-node">
+              <i class="fa-solid fa-server"></i>
+              <span>BACK-END DEV</span>
+            </div>
+            <i class="fa-solid fa-chevron-down stack-chevron"></i>
+            <div class="stack-tech-chips">
+              <span class="tech-chip"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="tech-chip"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="tech-chip"><i class="fa-solid fa-c"></i> C</span>
+              <span class="tech-chip"><i class="fa-solid fa-leaf"></i> Spring</span>
+            </div>
+          </div>
+          <!-- Databases -->
+          <div class="stack-col">
+            <div class="stack-col-line"></div>
+            <div class="stack-category-node">
+              <i class="fa-solid fa-database"></i>
+              <span>DATABASES</span>
+            </div>
+            <i class="fa-solid fa-chevron-down stack-chevron"></i>
+            <div class="stack-tech-chips">
+              <span class="tech-chip"><i class="fa-solid fa-database"></i> MySQL</span>
+              <span class="tech-chip"><i class="fa-solid fa-circle-nodes"></i> MongoDB</span>
+              <span class="tech-chip"><i class="fa-solid fa-server"></i> PostgreSQL</span>
+            </div>
+          </div>
+          <!-- DevOps -->
+          <div class="stack-col">
+            <div class="stack-col-line"></div>
+            <div class="stack-category-node">
+              <i class="fa-solid fa-infinity"></i>
+              <span>DEVOPS</span>
+            </div>
+            <i class="fa-solid fa-chevron-down stack-chevron"></i>
+            <div class="stack-tech-chips">
+              <span class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="tech-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+              <span class="tech-chip"><i class="fa-brands fa-linux"></i> Linux</span>
+            </div>
+          </div>
+          <!-- Mobile -->
+          <div class="stack-col">
+            <div class="stack-col-line"></div>
+            <div class="stack-category-node">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <span>MOBILE APP DEV</span>
+            </div>
+            <i class="fa-solid fa-chevron-down stack-chevron"></i>
+            <div class="stack-tech-chips">
+              <span class="tech-chip"><i class="fa-brands fa-android"></i> Android</span>
+              <span class="tech-chip"><i class="fa-brands fa-swift"></i> Swift</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading reveal">
+        <p class="section-kicker">About Me</p>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <article class="glass-card reveal" style="padding: 2.2rem 1.8rem; width: 100%;">
+          <p style="font-size: 1.15rem; line-height: 1.8; margin: 0; color: var(--text);">I’m a developer who combines
+            clean code with strong system design. I focus on building applications that are scalable, easy to maintain,
+            and engineered to last. My goal is to write software that performs reliably and solves real-world problems
+            efficiently.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+       STATS SECTION
+    ========================= -->
+    <section class="section stats-section" id="skills">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Metrics</p>
+        <h2>Quick Achievements</h2>
       </div>
 
-      <div class="insight-grid">
-        <article class="glass-card reveal">
-          <p class="card-label">Design Language</p>
-          <h3>Big type. Layered glow. Clean hierarchy.</h3>
-          <p>Every screen leans on contrast, spacing, and motion so the page feels premium before a single click
-            happens.</p>
+      <div class="stats-grid">
+        <article class="glass-card stat-card reveal">
+          <div class="stat-icon">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Projects Completed</div>
+          <p class="stat-desc">Production-ready web applications, interactive dashboards, and full-stack utilities.</p>
         </article>
 
-        <article class="glass-card reveal">
-          <p class="card-label">Build Style</p>
-          <h3>Ship quickly without losing the crafted feel.</h3>
-          <p>I combine lightweight front-end code, reusable components, and subtle interaction details that still
-            perform well.</p>
+        <article class="glass-card stat-card reveal">
+          <div class="stat-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="stat-number">500+</div>
+          <div class="stat-label">DSA Solved</div>
+          <p class="stat-desc">Mastered data structures & algorithms across active coding platforms.</p>
         </article>
 
-        <article class="glass-card reveal">
-          <p class="card-label">Workflow</p>
-          <h3>Research, prototype, refine, and polish.</h3>
-          <p>The goal is not just a nice layout. It is a page that guides the eye, sells the work, and feels confident
-            on every screen.</p>
+        <article class="glass-card stat-card reveal">
+          <div class="stat-icon">
+            <i class="fa-solid fa-code-commit"></i>
+          </div>
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Git Commits</div>
+          <p class="stat-desc">Consistent contributions, version control, and clean repository maintenance.</p>
+        </article>
+
+        <article class="glass-card stat-card reveal">
+          <div class="stat-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Technologies</div>
+          <p class="stat-desc">Proficient in Java, Spring Boot, Databases, Frontend frameworks, and DevOps tools.</p>
         </article>
       </div>
 
@@ -217,7 +343,7 @@
     <section class="section projects-section" id="projects">
       <div class="section-heading reveal">
         <p class="section-kicker">Featured Projects</p>
-        <h2>Cards and sections that keep the same cinematic mood as the hero.</h2>
+        <h2>Projects</h2>
       </div>
 
       <div class="projects-grid">
@@ -336,44 +462,8 @@
 
   <script src="./js/script.js"></script>
   <script src="./js/keyboardlighting.js"></script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+
+
 </body>
 
 </html>
