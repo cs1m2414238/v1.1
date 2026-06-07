@@ -8,15 +8,16 @@
     content="A cinematic portfolio concept with a floating skill board, animated cards, and a bold dark aesthetic.">
   <title>Priyanshu Sharma | Portfolio Concept</title>
   <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="./css/welcome.css">
+  <link rel="stylesheet" href="./css/statpannel.css">
+  <!-- <link rel="stylesheet" href="./css/welcome.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="lock-scroll" data-theme="night">
-  <div class="loading">
+<body data-theme="night">
+  <!-- <div class="loading">
     <div class="text">
       <div class="welcome-text">
         <div class="dot"></div>
@@ -54,7 +55,7 @@
     <div class="loading-round">
       <div class="curve"></div>
     </div>
-  </div>
+  </div> -->
 
   <div class="progress-track" aria-hidden="true">
     <div class="progress-bar" id="progress-bar"></div>
@@ -174,18 +175,20 @@
     </section>
 
 
-
-     <section class="learning-stacktree section" id="learning-stacktree">
+    <!-- ========================= 2. STACK TREE ========================= -->
+    <section class="learning-stacktree section" id="learning-stacktree">
       <div class="section-heading reveal">
         <p class="section-kicker">Stack Tree</p>
+        <h2>Full Stack Dev</h2>
       </div>
+
       <!-- Stack Tree Diagram -->
       <div class="stack-tree reveal">
         <!-- Root Node -->
         <div class="stack-root">
           <span>FULL STACK DEV</span>
         </div>
-        <!-- Connector line from root down ,its  vertical  -->
+        <!-- Connector line from root down -->
         <div class="stack-root-line"></div>
         <!-- Horizontal branch line -->
         <div class="stack-branch-line"></div>
@@ -266,83 +269,251 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+
+    <!-- -------------------------- 3. Competetive coding section ----------------- -->
+    <section class="section" id="stats-panel-section">
       <div class="section-heading reveal">
-        <p class="section-kicker">About Me</p>
-        <h2>About Me</h2>
+        <h2>Dashboard</h2>
       </div>
-      <div class="about-grid">
-        <article class="glass-card reveal" style="padding: 2.2rem 1.8rem; width: 100%;">
-          <p style="font-size: 1.15rem; line-height: 1.8; margin: 0; color: var(--text);">I’m a developer who combines
-            clean code with strong system design. I focus on building applications that are scalable, easy to maintain,
-            and engineered to last. My goal is to write software that performs reliably and solves real-world problems
-            efficiently.</p>
+
+        <!-- stats card with glassmorphism applied -->
+        <article class="stats-card reveal">
+          <!-- Header Block -->
+          <div class="header">
+            <div class="title-group">
+              <span class="orange-dot"></span>
+              <span class="panel-title">COMPETITIVE PROGRAMMING</span>
+              <span class="panel-subtitle">· STATS PANEL</span>
+            </div>
+            <div class="user-info">
+              USER: devhandle <span class="user-status">01:54:52</span>
+            </div>
+          </div>
+
+          <!-- Sub Navigation Tabs -->
+          <div class="tabs">
+            <div class="tab active">✦ LEETCODE</div>
+            <div class="tab">✦ HACKERRANK</div>
+            <div class="tab">✦ CODEFORCES</div>
+            <div class="tab">✦ CODECHEF</div>
+            <div class="tab">✦ GeeksforGeeks</div>
+          </div>
+
+          <!-- Tab Content Wrapper -->
+          <div id="stats-tab-content">
+            <!-- Upper Stats Summary Metrics Box Grid -->
+            <div class="summary-grid">
+              <div class="stat-card">
+                <div class="stat-value val-orange">48,312</div>
+                <div class="stat-label">Global Rank</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value val-green">387</div>
+                <div class="stat-label">Problems Solved</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value val-blue">1,847</div>
+                <div class="stat-label">Contest Rating</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value val-orange">41</div>
+                <div class="stat-label">Streak (Days)</div>
+              </div>
+            </div>
+
+            <!-- Main Content Layout splits Split Columns -->
+            <div class="main-content">
+              <!-- Left Panel: Solve Rate -->
+              <div class="panel-box">
+                <div class="box-header">Solve Rate · Arc Display</div>
+                
+                <div class="solve-rate-container">
+                  <!-- Left Column (Circle) -->
+                  <div class="solve-rate-left">
+                    <!-- Circular Arc Indicator -->
+                    <div class="circle-indicator-wrapper">
+                      <svg class="leetcode-svg" viewBox="0 0 100 100">
+                        <!-- Background Track with bottom gap (continuous, hidden by default) -->
+                        <circle id="graycircle" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
+                                stroke-dasharray="211.3 251.3" stroke-linecap="round"
+                                transform="rotate(120 50 50)" style="opacity: 0;" />
+                        <!-- Background Track Segments with cuts (visible by default) -->
+                        <circle class="track-segment" id="easytrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="0" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                        <circle class="track-segment" id="medtrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="-71" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                        <circle class="track-segment" id="hardtrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="-142" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                        <!-- Easy Arc (green/teal) -->
+                        <circle id="easycircle" cx="50" cy="50" r="40" fill="none" stroke="#06b6d4" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="0" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                        <!-- Medium Arc (yellow) -->
+                        <circle id="medcircle" cx="50" cy="50" r="40" fill="none" stroke="#fbbf24" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="-71" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                        <!-- Hard Arc (red) -->
+                        <circle id="hardcircle" cx="50" cy="50" r="40" fill="none" stroke="#ef4444" stroke-width="6" 
+                                stroke-dasharray="67 251.3" stroke-dashoffset="-142" stroke-linecap="round" 
+                                transform="rotate(120 50 50)" />
+                      </svg>
+
+                      <!-- Inner stats overlay -->
+                      <div class="circle-inner-content">
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
+                          <span class="solved-count">185</span>
+                          <span class="total-count">/3957</span>
+                        </div>
+                        <div class="solved-label">
+                          <i class="fa-solid fa-check" style="color: #22c55e; font-size: 0.75rem;"></i> Solved
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right Column (Cards) -->
+                  <div class="solve-rate-right">
+                    <!-- Stacked Difficulty Cards -->
+                    <div class="difficulty-cards-stack">
+                      <!-- Easy -->
+                      <div class="diff-card-item">
+                        <span class="card-label-easy">Easy</span>
+                        <span class="card-values">80<span>/949</span></span>
+                      </div>
+
+                      <!-- Medium -->
+                      <div class="diff-card-item">
+                        <span class="card-label-medium">Med.</span>
+                        <span class="card-values">92<span>/2066</span></span>
+                      </div>
+
+                      <!-- Hard -->
+                      <div class="diff-card-item">
+                        <span class="card-label-hard">Hard</span>
+                        <span class="card-values">13<span>/942</span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Panel: Badges -->
+              <div class="panel-box">
+                <div class="box-header">LeetCode Badges</div>
+                
+                <div class="badges-container">
+                  <!-- Knight Badge -->
+                  <div class="badge-item badge-knight">
+                    <div class="badge-icon-knight">
+                      <i class="fa-solid fa-chess-knight"></i>
+                    </div>
+                    <div class="badge-name">Knight</div>
+                    <div class="badge-desc">Contest Rating Top 4.8%</div>
+                  </div>
+
+                  <!-- Streak Badge -->
+                  <div class="badge-item badge-streak">
+                    <div class="badge-icon-streak">
+                      <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div class="badge-name">50 Days (2025)</div>
+                    <div class="badge-desc">Consecutive coding streak</div>
+                  </div>
+                </div>
+
+                <div class="meta-row">
+                  <span class="meta-label">Acceptance Rate</span>
+                  <span class="meta-val-blue">68.4%</span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-label">Contest Rank</span>
+                  <span class="meta-val-orange">Knight</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heatmap Submission Matrix Row -->
+          <div class="heatmap-box">
+            <div class="box-header">Submission Activity · Last 52 Weeks</div>
+            <div class="heatmap-wrapper">
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-1"></div>
+              <div class="heatmap-cell cell-3"></div>
+              <div class="heatmap-cell cell-2"></div>
+              <div class="heatmap-cell cell-0"></div>
+              <div class="heatmap-cell cell-4"></div>
+              <div class="heatmap-cell cell-1"></div>
+            </div>
+            <div class="heatmap-legend" style="display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 9px; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
+              <span>Less</span>
+              <div class="heatmap-cell cell-0" style="margin: 0;"></div>
+              <div class="heatmap-cell cell-1" style="margin: 0;"></div>
+              <div class="heatmap-cell cell-2" style="margin: 0;"></div>
+              <div class="heatmap-cell cell-3" style="margin: 0;"></div>
+              <div class="heatmap-cell cell-4" style="margin: 0;"></div>
+              <span>More</span>
+            </div>
+          </div>
         </article>
-      </div>
     </section>
 
-    <!-- =========================
-       STATS SECTION
-    ========================= -->
-    <section class="section stats-section" id="skills">
-      <div class="section-heading reveal">
-        <p class="section-kicker">Metrics</p>
-        <h2>Quick Achievements</h2>
-      </div>
 
-      <div class="stats-grid">
-        <article class="glass-card stat-card reveal">
-          <div class="stat-icon">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <div class="stat-number">15+</div>
-          <div class="stat-label">Projects Completed</div>
-          <p class="stat-desc">Production-ready web applications, interactive dashboards, and full-stack utilities.</p>
-        </article>
-
-        <article class="glass-card stat-card reveal">
-          <div class="stat-icon">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <div class="stat-number">500+</div>
-          <div class="stat-label">DSA Solved</div>
-          <p class="stat-desc">Mastered data structures & algorithms across active coding platforms.</p>
-        </article>
-
-        <article class="glass-card stat-card reveal">
-          <div class="stat-icon">
-            <i class="fa-solid fa-code-commit"></i>
-          </div>
-          <div class="stat-number">1,200+</div>
-          <div class="stat-label">Git Commits</div>
-          <p class="stat-desc">Consistent contributions, version control, and clean repository maintenance.</p>
-        </article>
-
-        <article class="glass-card stat-card reveal">
-          <div class="stat-icon">
-            <i class="fa-solid fa-layer-group"></i>
-          </div>
-          <div class="stat-number">12+</div>
-          <div class="stat-label">Technologies</div>
-          <p class="stat-desc">Proficient in Java, Spring Boot, Databases, Frontend frameworks, and DevOps tools.</p>
-        </article>
-      </div>
-
-      <div class="skill-ribbon reveal" aria-label="Highlighted capabilities">
-        <span>Landing Pages</span>
-        <span>Portfolio Sites</span>
-        <span>UI Motion</span>
-        <span>Responsive Layouts</span>
-        <span>Dark Aesthetic</span>
-        <span>Performance First</span>
-        <span>Content Systems</span>
-        <span>AI Product UI</span>
-      </div>
-    </section>
-
+    <!-- ========================= 4. PROJECTS SECTION ========================= -->
     <section class="section projects-section" id="projects">
       <div class="section-heading reveal">
-        <p class="section-kicker">Featured Projects</p>
+        <p class="section-kicker"></p>
         <h2>Projects</h2>
       </div>
 
@@ -362,10 +533,15 @@
             </div>
           </div>
           <div class="project-copy">
-            <p class="project-type">Dashboard Design</p>
+            <p class="project-type">Full Stack App</p>
             <h3>Realtime Operations Board</h3>
             <p>A bold monitoring interface with crisp states, layered panels, and enough motion to feel alive without
               becoming noisy.</p>
+            <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="#" class="secondary-button" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="primary-button" aria-label="Live Demo"><i
+                  class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </article>
 
@@ -379,6 +555,10 @@
             <h3>Motion Commerce Landing</h3>
             <p>Large product framing, high-contrast sections, and CTA placement designed to make a single page feel like
               a complete campaign.</p>
+            <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="#" class="secondary-button"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="primary-button"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </article>
 
@@ -393,77 +573,437 @@
             <h3>Prompt Workflow Studio</h3>
             <p>A concept for teams managing prompts, agents, and automations with a visual system that feels technical
               and modern.</p>
+            <div class="project-links" style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="#" class="secondary-button"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="#" class="primary-button"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section about-section" id="about">
+    <!-- ========================= 5. PLATFORM ACTIVITIES ========================= -->
+    <section class="section" id="platform-activities">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Competitive Programming</p>
+        <h2>Platform Activities</h2>
+      </div>
+      <div class="platform-activities-grid">
+        <!-- LeetCode Card -->
+        <article class="glass-card platform-card platform-card-leetcode reveal">
+          <div class="card-content">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFA116">
+                <path
+                  d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.77 9.77a1.375 1.375 0 0 0 0 1.944l5.675 5.675a1.38 1.38 0 0 0 1.943 0l9.786-9.786a1.377 1.377 0 0 0 0-1.943l-5.675-5.675A1.37 1.37 0 0 0 13.483 0zm-.961 2.378l4.254 4.254-8.825 8.825-4.254-4.254zm9.324 4.517l.006.006c.01.01.023.018.033.029.027.027.051.057.073.088l.024.036c.018.03.033.06.045.093l.012.033c.012.039.02.078.024.12l.003.018a1.38 1.38 0 0 1-.027.513l-.009.033c-.012.033-.03.066-.048.096l-.015.027a1.37 1.37 0 0 1-.168.216l-2.24 2.24-4.254-4.254 2.24-2.24a1.38 1.38 0 0 1 .98-.415c.356.002.7.143.951.393zM5.09 13.278l4.254 4.254-2.24 2.24a1.375 1.375 0 0 1-1.943 0L.414 15.098a1.375 1.375 0 0 1 0-1.943z" />
+              </svg>
+            </div>
+            <h3 class="card-title">LeetCode</h3>
+            <div class="platform-stats">
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Solved</span>
+                <span class="platform-stat-value">500+ Problems</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Rating Rank</span>
+                <span class="platform-stat-value">Top 4.8%</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Badge</span>
+                <span class="platform-stat-value">Knight</span>
+              </div>
+              <div class="platform-progress">
+                <div class="platform-progress-fill" style="width: 75%; background: #FFA116;"></div>
+              </div>
+            </div>
+            <a class="platform-link" href="https://leetcode.com/u/9sY5neJGk8/" target="_blank" rel="noopener">
+              View Profile <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- HackerRank Card -->
+        <article class="glass-card platform-card platform-card-hackerrank reveal">
+          <div class="card-content">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="#2EC866">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.3 14.5h-1.8v-3.6H10.5v3.6H8.7V7.5h1.8v3.6h3v-3.6h1.8v9z" />
+              </svg>
+            </div>
+            <h3 class="card-title">HackerRank</h3>
+            <div class="platform-stats">
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Problem Solving</span>
+                <span class="platform-stat-value">Gold Badge</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Java Skill</span>
+                <span class="platform-stat-value">5 Stars</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Global Rank</span>
+                <span class="platform-stat-value">Top 1.2%</span>
+              </div>
+              <div class="platform-progress">
+                <div class="platform-progress-fill" style="width: 85%; background: #2EC866;"></div>
+              </div>
+            </div>
+            <a class="platform-link" href="https://www.hackerrank.com/profile/cs1m2414238" target="_blank"
+              rel="noopener">
+              View Profile <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Codeforces Card -->
+        <article class="glass-card platform-card platform-card-codeforces reveal">
+          <div class="card-content">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" style="display: inline-block; vertical-align: middle;">
+                <rect x="2" y="10" width="5" height="12" rx="1.5" fill="#FFC107" />
+                <rect x="9.5" y="3" width="5" height="19" rx="1.5" fill="#2196F3" />
+                <rect x="17" y="6.5" width="5" height="15.5" rx="1.5" fill="#F44336" />
+              </svg>
+            </div>
+            <h3 class="card-title">Codeforces</h3>
+            <div class="platform-stats">
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Rating</span>
+                <span class="platform-stat-value">1420 (Specialist)</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Max Rating</span>
+                <span class="platform-stat-value">1450</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Contests</span>
+                <span class="platform-stat-value">45+ Played</span>
+              </div>
+              <div class="platform-progress">
+                <div class="platform-progress-fill" style="width: 60%; background: #2196F3;"></div>
+              </div>
+            </div>
+            <a class="platform-link" href="https://codeforces.com/profile/cs1m2414238" target="_blank" rel="noopener">
+              View Profile <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- GeeksforGeeks Card -->
+        <article class="glass-card platform-card platform-card-geeksforgeeks reveal">
+          <div class="card-content">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="#0f9d58">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.8 13.5c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7c1 0 1.9.5 2.4 1.3L11.1 12c-.2-.4-.6-.6-1-.6-.7 0-1.2.5-1.2 1.2s.5 1.2 1.2 1.2c.4 0 .8-.2 1-.6l1.5.8c-.5.8-1.4 1.3-2.4 1.3zm5.6-2.7c0 1.5-1.2 2.7-2.7 2.7-1 0-1.9-.5-2.4-1.3l1.5-.8c.2.4.6.6 1 .6.7 0 1.2-.5 1.2-1.2s-.5-1.2-1.2-1.2c-.4 0-.8.2-1 .6l-1.5-.8c.5-.8 1.4-1.3 2.4-1.3 1.5 0 2.7 1.2 2.7 2.7z" />
+              </svg>
+            </div>
+            <h3 class="card-title">GeeksforGeeks</h3>
+            <div class="platform-stats">
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Total Score</span>
+                <span class="platform-stat-value">1,520</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Solved</span>
+                <span class="platform-stat-value">420+ Problems</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">College Rank</span>
+                <span class="platform-stat-value">12</span>
+              </div>
+              <div class="platform-progress">
+                <div class="platform-progress-fill" style="width: 80%; background: #0f9d58;"></div>
+              </div>
+            </div>
+            <a class="platform-link" href="https://www.geeksforgeeks.org/user/cs1m2414238/" target="_blank"
+              rel="noopener">
+              View Profile <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- CodeChef Card -->
+        <article class="glass-card platform-card platform-card-codechef reveal">
+          <div class="card-content">
+            <div class="platform-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="#5B4636">
+                <path
+                  d="M21 11.2c0-1.3-.6-2.4-1.5-3.1.2-.5.3-1.1.3-1.6C19.8 4 17.8 2 15.3 2c-1.3 0-2.4.5-3.3 1.4C11.1 2.5 10 2 8.7 2 6.2 2 4.2 4 4.2 6.5c0 .5.1 1.1.3 1.6C3.6 8.8 3 9.9 3 11.2c0 1.9 1.2 3.5 2.9 4.1v4.7H18.1v-4.7c1.7-.6 2.9-2.2 2.9-4.1zM5.7 6.5c0-1.7 1.3-3 3-3s3 1.3 3 3c0 .5-.1 1.1-.3 1.6H6c-.2-.5-.3-1.1-.3-1.6zm9.6-3c1.7 0 3 1.3 3 3 0 .5-.1 1.1-.3 1.6H13c-.2-.5-.3-1.1-.3-1.6 0-1.7 1.3-3 3-3zM4.5 11.2c0-1.4 1.1-2.5 2.5-2.5h10c1.4 0 2.5 1.1 2.5 2.5s-1.1 2.5-2.5 2.5H7c-1.4 0-2.5-1.1-2.5-2.5zm12.1 7.3H7.4v-3.5h9.2v3.5z" />
+              </svg>
+            </div>
+            <h3 class="card-title">CodeChef</h3>
+            <div class="platform-stats">
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Rating</span>
+                <span class="platform-stat-value">1640 (3★)</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Division</span>
+                <span class="platform-stat-value">Division 2</span>
+              </div>
+              <div class="platform-stat-item">
+                <span class="platform-stat-label">Global Rank</span>
+                <span class="platform-stat-value">5,420</span>
+              </div>
+              <div class="platform-progress">
+                <div class="platform-progress-fill" style="width: 65%; background: #5B4636;"></div>
+              </div>
+            </div>
+            <a class="platform-link" href="https://www.codechef.com/users/cs1m2414238" target="_blank" rel="noopener">
+              View Profile <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 6. GITHUB SECTION ========================= -->
+    <section class="section" id="github">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Development Activity</p>
+        <h2>GitHub</h2>
+      </div>
+      <div class="glass-card github-card reveal">
+        <i class="fa-brands fa-github github-icon"></i>
+        <h3 class="github-title">Open Source &amp; Repositories</h3>
+        <p class="github-desc">Explore my latest commits, repositories, and open source work.</p>
+        <div class="github-stats-row">
+          <div class="github-stat-item">
+            <h4 class="github-stat-number">30+</h4>
+            <span class="github-stat-label">Repositories</span>
+          </div>
+          <div class="github-stat-item">
+            <h4 class="github-stat-number">1,200+</h4>
+            <span class="github-stat-label">Contributions</span>
+          </div>
+        </div>
+        <a class="primary-button" href="https://github.com/" target="_blank" rel="noopener">
+          View GitHub Profile
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================= 7. CURRENTLY LEARNING ========================= -->
+    <section class="section" id="learning">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Continuous Growth</p>
+        <h2>Currently Learning</h2>
+      </div>
+      <div class="learning-grid">
+        <article class="glass-card reveal">
+          <h3 class="card-title">Spring Security</h3>
+          <p>Deep diving into OAuth2, JWT filters, method-level security &amp; authorization flows.</p>
+        </article>
+        <article class="glass-card reveal">
+          <h3 class="card-title">Docker</h3>
+          <p>Containerizing Java apps, multi-stage builds, and Docker Compose setups for consistent deployments.</p>
+        </article>
+        <article class="glass-card reveal">
+          <h3 class="card-title">Microservices</h3>
+          <p>Service decomposition, API gateways, inter-service communication patterns, and fault tolerance.</p>
+        </article>
+        <article class="glass-card reveal">
+          <h3 class="card-title">System Design</h3>
+          <p>Scalability, caching, load balancing, distributed systems fundamentals, and database sharding.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 8. ABOUT SECTION ========================= -->
+    <section class="section" id="about">
+      <div class="section-heading reveal">
+        <p class="section-kicker">About Me</p>
+        <h2>Personal Story</h2>
+      </div>
+      <div class="about-grid">
+        <article class="glass-card reveal">
+          <p class="card-label">The Journey</p>
+          <p>I'm a developer who combines clean code with strong system design. I focus on building applications that
+            are scalable, easy to maintain, and engineered to last.</p>
+        </article>
+        <article class="glass-card reveal">
+          <p class="card-label">Education</p>
+          <p>Currently pursuing my degree in Computer Science, where I have been deepening my knowledge in algorithms,
+            operating systems, and software engineering.</p>
+        </article>
+        <article class="glass-card reveal">
+          <p class="card-label">Career Goals</p>
+          <p>My goal is to write software that performs reliably and solves real-world problems efficiently — aiming
+            toward backend engineering and distributed systems roles.</p>
+        </article>
+        <article class="glass-card reveal">
+          <p class="card-label">Working Style</p>
+          <p>I work methodically — I prefer understanding the problem deeply before writing the first line of code.
+            Clean architecture over quick hacks, always.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================= 9. JOURNEY / TIMELINE ========================= -->
+    <section class="section" id="journey">
       <div class="about-layout">
         <div class="section-heading reveal">
-          <p class="section-kicker">About The Build</p>
-          <h2>Original code, similar energy.</h2>
-          <p class="about-copy">This project was built from scratch to echo the reference mood: dark space, oversized
-            typography, a floating skill board, and layered project cards. It is not a copy of the original site markup.
-            It is a fresh implementation you can now customize with your own text, links, and real projects.</p>
+          <p class="section-kicker">Timeline</p>
+          <h2>My Journey</h2>
+          <p class="about-copy">From writing my first Hello World to building full-stack systems — here are the
+            milestones that shaped my development path.</p>
         </div>
-
         <div class="timeline-card reveal">
           <div class="timeline-item">
             <span>01</span>
             <div>
-              <h3>Hero First</h3>
-              <p>A clear introduction on the left, with the visual centerpiece carrying the right side of the screen.
-              </p>
+              <h3>Foundations</h3>
+              <p>Learned C, then Java — built a strong base in OOP, data structures, and algorithmic thinking through
+                competitive programming.</p>
             </div>
           </div>
           <div class="timeline-item">
             <span>02</span>
             <div>
-              <h3>Depth Through Layers</h3>
-              <p>Blurs, glows, shadows, and glass panels create the same immersive feel as the reference video.</p>
+              <h3>Full Stack Phase</h3>
+              <p>Moved into web development — HTML, CSS, JavaScript, then React on the front end, Spring Boot on the
+                back end.</p>
             </div>
           </div>
           <div class="timeline-item">
             <span>03</span>
             <div>
-              <h3>Ready To Personalize</h3>
-              <p>Swap in your resume link, project screenshots, GitHub, and social URLs without restructuring the
-                layout.</p>
+              <h3>Advanced Systems</h3>
+              <p>Now exploring microservices, Docker, system design patterns, and building production-grade
+                applications.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ========================= 10. RESUME SECTION ========================= -->
+    <section class="section" id="resume">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Recruiter Friendly</p>
+        <h2>Resume</h2>
+      </div>
+      <div class="glass-card resume-card reveal">
+        <div class="resume-header">
+          <h3 class="resume-title"><strong>Priyanshu Sharma</strong> — Full Stack Developer</h3>
+          <p class="resume-desc">Experience in Java, Spring Boot, React, and database systems. Strong foundation in DSA,
+            system design, and clean code principles.</p>
+        </div>
+        <div class="resume-chips-wrapper">
+          <span class="tech-chip"><i class="fa-brands fa-java"></i> Java</span>
+          <span class="tech-chip"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech-chip"><i class="fa-brands fa-react"></i> React</span>
+          <span class="tech-chip"><i class="fa-solid fa-leaf"></i> Spring Boot</span>
+          <span class="tech-chip"><i class="fa-solid fa-database"></i> MySQL</span>
+          <span class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+        </div>
+        <a class="primary-button" href="#" download aria-label="Download Resume">
+          <i class="fa-solid fa-download"></i> Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================= 11. CONTACT SECTION ========================= -->
     <section class="section contact-section" id="contact">
-      <div class="contact-card reveal">
-        <p class="section-kicker">Let's Build</p>
-        <h2>Want this turned into your full personal portfolio?</h2>
-        <p>I can adapt this exact structure with your real name, project screenshots, resume, and social links so it
-          feels fully yours.</p>
-        <div class="hero-actions-row">
-          <a class="primary-button" href="#home">Back To Top</a>
-          <a class="secondary-button" href="#projects">See Projects</a>
+      <div class="section-heading reveal">
+        <p class="section-kicker">Let's Connect</p>
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <!-- Ways to connect -->
+        <div class="contact-info">
+          <h3>Ways to Connect</h3>
+          <p>Open to internships, freelance projects, and full-time opportunities. Let's build something great together.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:priyanshu@example.com" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-link-details">
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value">priyanshu@example.com</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="contact-link-details">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">linkedin.com/in/priyanshu</span>
+              </div>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link-item">
+              <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="contact-link-details">
+                <span class="contact-link-label">GitHub</span>
+                <span class="contact-link-value">github.com/cs1m2414238</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="glass-card contact-form-card">
+          <form class="contact-form" action="#" method="POST"
+            onsubmit="event.preventDefault(); alert('Message sent!');">
+            <div class="form-group">
+              <label for="form-name">Name</label>
+              <input type="text" id="form-name" placeholder="Your Name" required class="contact-input">
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email</label>
+              <input type="email" id="form-email" placeholder="your.email@example.com" required class="contact-input">
+            </div>
+            <div class="form-group">
+              <label for="form-message">Message</label>
+              <textarea id="form-message" rows="4" placeholder="Your message..." required
+                class="contact-input"></textarea>
+            </div>
+            <button type="submit" class="primary-button contact-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ========================= FOOTER ========================= -->
   <footer class="site-footer">
-    <p>Portfolio concept built with HTML, CSS, and vanilla JavaScript.</p>
+    <div class="footer-grid">
+      <!-- Info & copyright -->
+      <div class="footer-info">
+        <p class="footer-copyright">&copy; 2025 Priyanshu Sharma. All rights reserved.</p>
+        <p class="footer-tech-stack">Built with HTML, CSS, JS &amp; GSAP</p>
+      </div>
+
+      <!-- Quick navigation -->
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="#home">Home</a>
+        <a href="#learning-stacktree">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Social links -->
+      <div class="footer-socials">
+        <a href="https://github.com/cs1m2414238" target="_blank" rel="noopener" aria-label="GitHub"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+            class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
   </footer>
 
   <!-- Load external libraries first -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
   <!-- Preloader welcome animation -->
-  <script src="./js/welcome.js"></script>
-
+  <!-- <script src="./js/welcome.js"></script> -->
+  <script src="./js/statpannel.js"></script>
   <script src="./js/script.js"></script>
   <script src="./js/keyboardlighting.js"></script>
-
-
 </body>
 
 </html>

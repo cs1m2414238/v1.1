@@ -1,7 +1,4 @@
-/* =========================
-   PRELOADER WELCOME SCREEN
-========================= */
-
+/*
 .loading {
   width: 100vw;
   height: 100vh;
@@ -13,13 +10,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: visible; /* Let the loading-round curve hang below */
+  overflow: visible;
 }
 
-/* Curved edge reveal wrapper */
 .loading-round {
   position: absolute;
-  height: 30vh; /* Deep curve height for extra premium look */
+  height: 30vh;
   width: 100vw;
   top: 99%;
   left: 0;
@@ -27,7 +23,6 @@
   pointer-events: none;
 }
 
-/* Curved ellipse backdrop */
 .curve {
   height: 200%;
   width: 150%;
@@ -38,10 +33,6 @@
   left: 50%;
   transform: translate(-50%, -100%);
 }
-
-/* =========================
-   MULTILINGUAL TEXT STYLING
-========================= */
 
 .text {
   position: relative;
@@ -66,7 +57,6 @@
 
 }
 
-/* Preloader leading indicator dot */
 .welcome-text .dot {
   width: 10px;
   height: 10px;
@@ -86,11 +76,8 @@
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================
-   SCROLL LOCK
-========================= */
-
 body.lock-scroll {
   overflow: hidden !important;
   height: 100vh !important;
 }
+*/

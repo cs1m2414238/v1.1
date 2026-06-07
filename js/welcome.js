@@ -1,3 +1,4 @@
+/*
 window.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const welcomeTexts = gsap.utils.toArray(".welcome-text");
@@ -71,3 +72,4 @@ window.addEventListener("DOMContentLoaded", () => {
     stagger: 0.05
   }, "-=0.88");
 });
+*/

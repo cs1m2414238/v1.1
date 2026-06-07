@@ -106,3 +106,31 @@ OPTIONAL PREMIUM SECTIONS
 18. TECH STACK
 - Only if keyboard is removed
 - Otherwise keyboard already serves this purpose
+
+
+
+index.html
+:
+
+Commented out the reference to the welcome stylesheet: <!-- <link rel="stylesheet" href="./css/welcome.css"> -->.
+Disabled the lock-scroll class on the <body> tag so page scrolling is enabled immediately upon load.
+Commented out the entire <div class="loading">...</div> preloader container block.
+Commented out the script tag that loads the welcome preloader logic: <!-- <script src="./js/welcome.js"></script> -->.
+
+
+welcome.js
+:
+
+Commented out the entire JavaScript file contents to completely disable the execution of the GSAP preloader animation.
+
+
+welcome.css
+:
+
+Commented out all CSS rules to ensure no styling associated with the loading screen is loaded/applied.
+(Note: 
+
+keyboardlighting.js
+ has an automatic fallback that detects when .loading is not present in the DOM, meaning the keyboard lighting boot animation will run 400ms after the page loads without any issues.)
+
+11:05 AM
