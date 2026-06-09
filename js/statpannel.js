@@ -425,6 +425,114 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 
+  const geeksforgeeksTemplate = `
+    <!-- Main Content Layout with 3 columns for GFG -->
+    <div class="main-content gfg-three-columns">
+      <!-- Left Panel: Problems Overview -->
+      <div class="panel-box">
+        <div class="box-header gfg-centered-header">Problems Overview</div>
+        
+        <div class="gfg-problems-overview">
+          <div class="gfg-donut-wrapper">
+            <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+              <!-- Background Circle -->
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="8" />
+              <!-- Easy (3 problems) -> 75% of 251.3 circumference = 188.5 -->
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="8" 
+                      stroke-dasharray="188.5 251.3" stroke-linecap="butt" transform="rotate(-90 50 50)" />
+              <!-- Medium (1 problem) -> 25% of 251.3 circumference = 62.8 -->
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#fbbf24" stroke-width="8" 
+                      stroke-dasharray="62.8 251.3" stroke-dashoffset="-188.5" stroke-linecap="butt" transform="rotate(-90 50 50)" />
+            </svg>
+            <div class="gfg-donut-text">
+              <span class="gfg-solve-num">4</span>
+              <span class="gfg-solve-lbl">Problems Solved</span>
+            </div>
+          </div>
+          <div class="gfg-legend">
+            <div class="gfg-legend-item"><span class="legend-dot school"></span> School (0)</div>
+            <div class="gfg-legend-item"><span class="legend-dot basic"></span> Basic (0)</div>
+            <div class="gfg-legend-item"><span class="legend-dot easy"></span> Easy (3)</div>
+            <div class="gfg-legend-item"><span class="legend-dot medium"></span> Medium (1)</div>
+            <div class="gfg-legend-item"><span class="legend-dot hard"></span> Hard (0)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Panel: Coding score & Metrics -->
+      <div class="panel-box">
+        <div class="gfg-metrics-list">
+          <div class="gfg-metric-row">
+            <div class="gfg-metric-left">
+              <div class="gfg-metric-icon score-icon"><i class="fa-solid fa-code"></i></div>
+              <span class="gfg-metric-label">Coding Score</span>
+            </div>
+            <span class="gfg-metric-val-pill pill-green">10</span>
+          </div>
+          <div class="gfg-metric-row clickable">
+            <div class="gfg-metric-left">
+              <div class="gfg-metric-icon solved-icon"><i class="fa-solid fa-code-branch"></i></div>
+              <span class="gfg-metric-label">Problems Solved</span>
+            </div>
+            <div class="gfg-metric-right">
+              <span class="gfg-metric-val-pill pill-blue">4</span>
+              <i class="fa-solid fa-chevron-right chevron"></i>
+            </div>
+          </div>
+          <div class="gfg-metric-row clickable">
+            <div class="gfg-metric-left">
+              <div class="gfg-metric-icon rank-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <span class="gfg-metric-label">Institute Rank</span>
+            </div>
+            <div class="gfg-metric-right">
+              <span class="gfg-metric-val-pill pill-purple">821</span>
+              <i class="fa-solid fa-chevron-right chevron"></i>
+            </div>
+          </div>
+          <div class="gfg-metric-row">
+            <div class="gfg-metric-left">
+              <div class="gfg-metric-icon articles-icon"><i class="fa-solid fa-newspaper"></i></div>
+              <span class="gfg-metric-label">Articles Published</span>
+            </div>
+            <span class="gfg-metric-val-pill pill-orange">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel: Streaks banner & cards -->
+      <div class="panel-box gfg-streaks-box">
+        <div class="gfg-streak-banner">
+          <div class="gfg-streak-banner-content">
+            <div class="banner-fire-wrapper">
+              <i class="fa-solid fa-fire banner-fire"></i>
+            </div>
+            <span class="gfg-banner-text">1 Day POTD Streak</span>
+          </div>
+        </div>
+        
+        <div class="gfg-streak-card">
+          <div class="gfg-streak-icon-box">
+            <i class="fa-solid fa-calendar-days gfg-streak-icon-gold"></i>
+          </div>
+          <div class="gfg-streak-details">
+            <span class="gfg-streak-label">Longest Streak:</span>
+            <span class="gfg-streak-value">1 Days</span>
+          </div>
+        </div>
+        
+        <div class="gfg-streak-card">
+          <div class="gfg-streak-icon-box">
+            <i class="fa-solid fa-trophy gfg-streak-icon-gold"></i>
+          </div>
+          <div class="gfg-streak-details">
+            <span class="gfg-streak-label">POTDs Solved:</span>
+            <span class="gfg-streak-value">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
   // ----------------------------------------------------
   // Platform Data for LeetCode-style content
   // ----------------------------------------------------
@@ -492,23 +600,23 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     geeksforgeeks: {
       metrics: [
-        { value: "8,542", label: "Geek Rank", class: "val-orange" },
-        { value: "420", label: "Problems Solved", class: "val-green" },
-        { value: "1,812", label: "GFG Score", class: "val-blue" },
-        { value: "62", label: "Monthly Streak", class: "val-orange" }
+        { value: "821", label: "Institute Rank", class: "val-orange" },
+        { value: "4", label: "Problems Solved", class: "val-green" },
+        { value: "10", label: "Coding Score", class: "val-blue" },
+        { value: "1", label: "Streak (Days)", class: "val-orange" }
       ],
       solveRate: {
-        easy: "210/400",
-        medium: "170/600",
-        hard: "40/250"
+        easy: "3/400",
+        medium: "1/600",
+        hard: "0/250"
       },
       badgesHeader: "GFG Badges",
       badges: [
-        { icon: '<i class="fa-solid fa-shield-halved"></i>', name: "Geek Rank", desc: "Top 0.8% overall" },
-        { icon: '<i class="fa-solid fa-fire"></i>', name: "62 Days Streak", desc: "GFG streak maintained" }
+        { icon: '<i class="fa-solid fa-fire"></i>', name: "1 Day Streak", desc: "POTD streak maintained" },
+        { icon: '<i class="fa-solid fa-award"></i>', name: "POTDs Solved", desc: "1 GFG POTD completed" }
       ],
-      acceptance: "63.4%",
-      rank: "Super Geek"
+      acceptance: "100%",
+      rank: "Institute Rank: 821"
     }
   };
 
@@ -698,6 +806,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { "stroke-dasharray": `0 ${totalCircumference}` },
         { "stroke-dasharray": `150.0 ${totalCircumference}`, duration: 0.8, ease: "power2.out" }
       );
+    } else if (key === "geeksforgeeks") {
+      if (heatmapBox) heatmapBox.style.display = "none";
+      container.innerHTML = geeksforgeeksTemplate;
     } else {
       if (heatmapBox) heatmapBox.style.display = "block";
       // Load LeetCode-style layout
