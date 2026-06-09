@@ -128,12 +128,29 @@ html {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-body[data-theme="dawn"] .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(15, 23, 42, 0.04);
+body[data-theme="dawn"] .site-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 10px 30px rgba(31, 38, 135, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+body[data-theme="dawn"] .site-header.scrolled {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  box-shadow:
+    0 12px 35px rgba(31, 38, 135, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.2);
 }
 
 /* =========================
@@ -248,16 +265,6 @@ body[data-theme="dawn"] .menu-button {
   box-shadow: none;
 }
 
-/* theme button overrides */
-.icon-button {
-  /* Inherits dimensions and shape */
-}
-
-/* menu button overrides */
-.menu-button {
-  /* Inherits dimensions and shape */
-}
-
 .icon-button:hover,
 .menu-button:hover {
 
@@ -282,11 +289,8 @@ body[data-theme="dawn"] .menu-button:hover {
   -webkit-backdrop-filter: none;
 }
 
-/* scrolled header overrides removed */
 
-/* =========================
-   GITHUB BUTTON
-========================= */
+/* github button */
 
 .gitHub {
   display: inline-flex;
@@ -316,9 +320,7 @@ body[data-theme="dawn"] .gitHub:hover {
   transform: scale(0.95);
 }
 
-/* =========================
-   MENU ICON
-========================= */
+/*menu icon */
 
 .menu-lines {
   display: flex;
@@ -336,9 +338,7 @@ body[data-theme="dawn"] .gitHub:hover {
   background: white;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* mobile */
 
 @media (max-width: 768px) {
 
@@ -378,6 +378,24 @@ body {
 
 body[data-theme="dawn"] {
   background: #ffffff;
+}
+
+/* heading switching with name  */
+#typing {
+  color: #ffffff;
+  border-right: 3px solid;
+  padding-right: 5px;
+  animation: blink 0.8s infinite;
+}
+
+body[data-theme="dawn"] #typing {
+  color: #000000;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 /* Transition  so we have to remove body transition  */
@@ -437,30 +455,67 @@ button {
 }
 
 .ambient {
+  pointer-events: none;
+  position: fixed;
   z-index: -3;
-  filter: blur(42px);
+  filter: blur(90px);
+  opacity: 0.12;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  border-radius: 50%;
+  transition: top 4s ease-in-out, left 4s ease-in-out;
 }
 
 .ambient-left {
-  background: radial-gradient(circle at 15% 20%, rgba(0, 197, 255, 0.16), transparent 18rem);
+  width: 500px;
+  height: 500px;
+  background: #00c5ff; /* Cyan */
+  left: -100px;
+  top: -200px;
+  animation: move1 8s ease-in-out infinite alternate;
 }
 
 .ambient-right {
-  background: radial-gradient(circle at 80% 18%, rgba(123, 108, 255, 0.14), transparent 18rem);
+  width: 600px;
+  height: 600px;
+  background: #7b6cff; /* Purple */
+  right: -150px;
+  top: -100px;
+  animation: move2 10s ease-in-out infinite alternate;
 }
 
 .ambient-bottom {
-  background: radial-gradient(circle at 50% 100%, rgba(255, 181, 83, 0.1), transparent 24rem);
+  width: 450px;
+  height: 450px;
+  background: #ffb553; /* Orange/Gold */
+  left: 40%;
+  top: -150px;
+  animation: move3 12s ease-in-out infinite alternate;
 }
 
-.ambient-fourth,
+.ambient-fourth {
+  width: 550px;
+  height: 550px;
+  background: #ec4899; /* Vibrant Pink/Rose */
+  left: 20vw;
+  top: -150px;
+  animation: move4 14s ease-in-out infinite alternate;
+}
+
 .ambient-fifth {
-  display: none;
+  width: 500px;
+  height: 500px;
+  background: #10b981; /* Emerald Green */
+  left: 70vw;
+  top: -100px;
+  animation: move5 16s ease-in-out infinite alternate;
 }
 
 /* Light mode  (softer pastel tints & liquid animations) */
 body[data-theme="dawn"] .ambient {
-  filter: blur(100px);
+  filter: blur(0px);
   opacity: 1;
   top: auto;
   left: auto;
@@ -742,6 +797,13 @@ body[data-theme="dawn"] .menu-button {
 
 .hero h1 {
   font-size: clamp(4rem, 10vw, 7.4rem);
+  min-height: 1.1em;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    min-height: 2.2em;
+  }
 }
 
 .hero-role,

@@ -15,10 +15,6 @@ const leftPositions = ["-150px", "10vw", "25vw", "40vw", "60vw", "75vw", "90vw"]
 const topPositions = ["-250px", "-200px", "-150px", "-100px"];
 
 function shuffleBlobPosition(blob) {
-  // Only manipulate starting offsets in dawn (light) mode
-  const isDawn = document.body.getAttribute("data-theme") === "dawn";
-  if (!isDawn) return;
-
   const randomLeft = leftPositions[Math.floor(Math.random() * leftPositions.length)];
   const randomTop = topPositions[Math.floor(Math.random() * topPositions.length)];
   
@@ -255,3 +251,47 @@ keysList.forEach((keyEl) => {
 
 renderStars();
 updateProgressBar();
+
+//  adding script for suffling in names 
+document.addEventListener("DOMContentLoaded",() => {
+  
+  const roles = [
+    "Priyanshu Sharma",
+    "Problem Solver",
+    "Full Stack Developer",
+    "Backend Developer",
+    "Java Developer"
+  ];
+
+  const typingElement = document.getElementById('typing');
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeEffect() {
+  const currentRole = roles[roleIndex];
+
+  if (!deleting) {
+    typingElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentRole.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1500);
+      return;
+    }
+  } else {
+    typingElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+  }
+
+  setTimeout(typeEffect, deleting ? 50 : 100);
+}
+
+typeEffect();
+});
