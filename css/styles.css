@@ -377,11 +377,7 @@ body {
 }
 
 body[data-theme="dawn"] {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(99, 102, 241, 0.05), transparent 34rem),
-    radial-gradient(circle at 82% 20%, rgba(244, 63, 94, 0.04), transparent 30rem),
-    radial-gradient(circle at 50% 110%, rgba(56, 189, 248, 0.04), transparent 38rem),
-    linear-gradient(180deg, #f5f7fa 0%, #eef2f6 50%, #e2e8f0 100%);
+  background: #ffffff;
 }
 
 /* Transition  so we have to remove body transition  */
@@ -455,6 +451,80 @@ button {
 
 .ambient-bottom {
   background: radial-gradient(circle at 50% 100%, rgba(255, 181, 83, 0.1), transparent 24rem);
+}
+
+.ambient-fourth,
+.ambient-fifth {
+  display: none;
+}
+
+/* Light mode  (softer pastel tints & liquid animations) */
+body[data-theme="dawn"] .ambient {
+  filter: blur(100px);
+  opacity: 1;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  border-radius: 50%;
+  transition: top 4s ease-in-out, left 4s ease-in-out;
+}
+
+body[data-theme="dawn"] .ambient-left {
+  width: 500px;
+  height: 500px;
+  background: #F8DCEB;
+  left: -100px;
+  top: -200px;
+  right: auto;
+  bottom: auto;
+  animation: move1 8s ease-in-out infinite alternate;
+}
+
+body[data-theme="dawn"] .ambient-right {
+  width: 600px;
+  height: 600px;
+  background: #DCEAFF;
+  right: -150px;
+  top: -100px;
+  left: auto;
+  bottom: auto;
+  animation: move2 10s ease-in-out infinite alternate;
+}
+
+body[data-theme="dawn"] .ambient-bottom {
+  width: 450px;
+  height: 450px;
+  background: #E6DFFF;
+  left: 40%;
+  top: -150px;
+  right: auto;
+  bottom: auto;
+  animation: move3 12s ease-in-out infinite alternate;
+}
+
+body[data-theme="dawn"] .ambient-fourth {
+  display: block;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #FEF3C7 0%, #DCEAFF 70%, transparent 100%);
+  left: 20vw;
+  top: -150px;
+  right: auto;
+  bottom: auto;
+  animation: move4 14s ease-in-out infinite alternate;
+}
+
+body[data-theme="dawn"] .ambient-fifth {
+  display: block;
+  width: 500px;
+  height: 500px;
+  background: #D4F6DC;
+  left: 70vw;
+  top: -100px;
+  right: auto;
+  bottom: auto;
+  animation: move5 16s ease-in-out infinite alternate;
 }
 
 .header-actions {
@@ -2588,5 +2658,100 @@ textarea.contact-input {
   
   .footer-socials {
     justify-content: center;
+  }
+}
+
+@keyframes move1 {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  33% {
+    transform: translateY(250px) translateX(40px) scale(1.1) rotate(60deg);
+    border-radius: 60% 40% 50% 50% / 50% 60% 40% 60%;
+  }
+  66% {
+    transform: translateY(550px) translateX(-30px) scale(0.9) rotate(120deg);
+    border-radius: 35% 65% 50% 50% / 60% 40% 60% 40%;
+  }
+  100% {
+    transform: translateY(800px) translateX(0px) scale(1) rotate(180deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateY(-100px) translateX(0px) scale(1.1) rotate(0deg);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+  33% {
+    transform: translateY(150px) translateX(-50px) scale(0.9) rotate(-60deg);
+    border-radius: 40% 60% 60% 40% / 55% 45% 55% 45%;
+  }
+  66% {
+    transform: translateY(450px) translateX(30px) scale(1.05) rotate(-120deg);
+    border-radius: 60% 40% 45% 55% / 40% 50% 60% 50%;
+  }
+  100% {
+    transform: translateY(700px) translateX(0px) scale(1.1) rotate(-180deg);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+  }
+}
+
+@keyframes move3 {
+  0% {
+    transform: translateY(50px) translateX(0px) scale(1) rotate(0deg);
+    border-radius: 60% 40% 40% 60% / 50% 50% 50% 50%;
+  }
+  33% {
+    transform: translateY(350px) translateX(-30px) scale(1.15) rotate(45deg);
+    border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%;
+  }
+  66% {
+    transform: translateY(650px) translateX(40px) scale(0.95) rotate(90deg);
+    border-radius: 55% 45% 40% 60% / 40% 60% 45% 55%;
+  }
+  100% {
+    transform: translateY(900px) translateX(0px) scale(1) rotate(135deg);
+    border-radius: 60% 40% 40% 60% / 50% 50% 50% 50%;
+  }
+}
+
+@keyframes move4 {
+  0% {
+    transform: translateY(100px) translateX(0px) scale(0.9) rotate(0deg);
+    border-radius: 40% 60% 50% 50% / 50% 60% 40% 50%;
+  }
+  33% {
+    transform: translateY(400px) translateX(60px) scale(1.1) rotate(45deg);
+    border-radius: 60% 40% 55% 45% / 40% 50% 60% 50%;
+  }
+  66% {
+    transform: translateY(700px) translateX(-40px) scale(0.95) rotate(90deg);
+    border-radius: 50% 50% 40% 60% / 60% 40% 55% 45%;
+  }
+  100% {
+    transform: translateY(1000px) translateX(0px) scale(0.9) rotate(180deg);
+    border-radius: 40% 60% 50% 50% / 50% 60% 40% 50%;
+  }
+}
+
+@keyframes move5 {
+  0% {
+    transform: translateY(150px) translateX(0px) scale(1.05) rotate(0deg);
+    border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%;
+  }
+  33% {
+    transform: translateY(450px) translateX(-50px) scale(0.9) rotate(50deg);
+    border-radius: 40% 65% 50% 45% / 55% 45% 60% 40%;
+  }
+  66% {
+    transform: translateY(750px) translateX(50px) scale(1.1) rotate(100deg);
+    border-radius: 60% 40% 55% 50% / 45% 55% 40% 60%;
+  }
+  100% {
+    transform: translateY(1050px) translateX(0px) scale(1.05) rotate(150deg);
+    border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%;
   }
 }

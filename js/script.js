@@ -9,6 +9,32 @@ const boardShell = document.querySelector("#skill-board-shell");
 const revealItems = document.querySelectorAll(".reveal");
 const icon = themeToggle ? themeToggle.querySelector(".icon") : null;
 
+// HyperOS Ambient Blobs Position Shuffler
+const ambientBlobs = document.querySelectorAll(".ambient");
+const leftPositions = ["-150px", "10vw", "25vw", "40vw", "60vw", "75vw", "90vw"];
+const topPositions = ["-250px", "-200px", "-150px", "-100px"];
+
+function shuffleBlobPosition(blob) {
+  // Only manipulate starting offsets in dawn (light) mode
+  const isDawn = document.body.getAttribute("data-theme") === "dawn";
+  if (!isDawn) return;
+
+  const randomLeft = leftPositions[Math.floor(Math.random() * leftPositions.length)];
+  const randomTop = topPositions[Math.floor(Math.random() * topPositions.length)];
+  
+  blob.style.left = randomLeft;
+  blob.style.top = randomTop;
+  blob.style.right = "auto";
+  blob.style.bottom = "auto";
+}
+
+ambientBlobs.forEach((blob) => {
+  blob.addEventListener("animationiteration", () => {
+    shuffleBlobPosition(blob);
+  });
+});
+
+
 
 const setMenuState = (open) => {
   if (mobileMenu) mobileMenu.classList.toggle("is-open", open);
