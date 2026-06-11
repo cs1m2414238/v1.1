@@ -295,3 +295,25 @@ document.addEventListener("DOMContentLoaded",() => {
 
 typeEffect();
 });
+
+// Journey Timeline Interactivity
+document.addEventListener("DOMContentLoaded", () => {
+  const scheduleRows = document.querySelectorAll(".schedule-row");
+  scheduleRows.forEach(row => {
+    const card = row.querySelector(".schedule-card");
+    if (card) {
+      const activateRow = () => {
+        scheduleRows.forEach(r => {
+          r.classList.remove("active");
+          const c = r.querySelector(".schedule-card");
+          if (c) c.classList.remove("active-gradient");
+        });
+        row.classList.add("active");
+        card.classList.add("active-gradient");
+      };
+
+      row.addEventListener("mouseenter", activateRow);
+      row.addEventListener("click", activateRow);
+    }
+  });
+});

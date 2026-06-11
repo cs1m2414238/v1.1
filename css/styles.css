@@ -1548,7 +1548,6 @@ body[data-theme="dawn"] .lime {
 
 .glass-card,
 .project-card,
-.timeline-card,
 .contact-card {
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -1560,16 +1559,14 @@ body[data-theme="dawn"] .lime {
 }
 
 .glass-card:hover,
-.project-card:hover,
-.timeline-card:hover {
+.project-card:hover {
   transform: translateY(-4px);
   border-color: var(--line-strong);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
 body[data-theme="dawn"] .glass-card:hover,
-body[data-theme="dawn"] .project-card:hover,
-body[data-theme="dawn"] .timeline-card:hover {
+body[data-theme="dawn"] .project-card:hover {
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
 }
 
@@ -1713,43 +1710,284 @@ body[data-theme="dawn"] .timeline-card:hover {
   align-items: start;
 }
 
-.timeline-card {
-  padding: 1.4rem;
+.journey-schedule-container {
+  padding: 2.2rem 1.8rem;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(35px) saturate(220%);
+  -webkit-backdrop-filter: blur(35px) saturate(220%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-.timeline-item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  padding: 1rem 0;
+body[data-theme="dawn"] .journey-schedule-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 20px 40px rgba(31, 38, 135, 0.06);
 }
 
-.timeline-item+.timeline-item {
-  border-top: 1px solid var(--line);
+.journey-schedule-container:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 30px 60px rgba(0, 0, 0, 0.55);
 }
 
-.timeline-item span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  border: 1px solid var(--line);
-  color: var(--accent);
+body[data-theme="dawn"] .journey-schedule-container:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 30px 60px rgba(15, 23, 42, 0.08);
+}
+
+.schedule-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.schedule-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+  color: #ffffff;
   font-family: var(--hero-title);
-  font-weight: 800;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.01em;
 }
 
-body[data-theme="dawn"] .timeline-item span {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03), rgba(15, 23, 42, 0.01));
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+body[data-theme="dawn"] .schedule-header h3 {
+  color: var(--text);
 }
 
-.timeline-item p {
+.schedule-header p {
+  font-size: 0.9rem;
+  color: var(--muted);
   margin: 0;
+}
+
+.schedule-timeline {
+  position: relative;
+}
+
+.schedule-timeline::before {
+  content: '';
+  position: absolute;
+  left: 79px; /* Centered between label (60px) and dot center (19px) */
+  top: 15px;
+  bottom: 15px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body[data-theme="dawn"] .schedule-timeline::before {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+.schedule-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.schedule-row:last-child {
+  margin-bottom: 0;
+}
+
+.schedule-label {
+  width: 60px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-top: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.schedule-row.active .schedule-label {
+  color: var(--text);
+}
+
+.schedule-dot-container {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.schedule-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--bg);
+  z-index: 2;
+  margin-top: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[data-theme="dawn"] .schedule-dot {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+.schedule-row.active .schedule-dot {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+body[data-theme="dawn"] .schedule-row.active .schedule-dot {
+  background: var(--text);
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.3);
+}
+
+.schedule-card {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.002) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.1rem 1.3rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body[data-theme="dawn"] .schedule-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.005) 100%);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 20px rgba(15, 23, 42, 0.02);
+}
+
+.schedule-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+body[data-theme="dawn"] .schedule-card:hover {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.01) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.schedule-card.active-gradient {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.55) 0%, rgba(77, 124, 15, 0.55) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 10px 30px rgba(20, 184, 166, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+.schedule-card.active-gradient .schedule-item h4 {
+  color: #ffffff !important;
+}
+
+.schedule-card.active-gradient .schedule-time {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.schedule-card.active-gradient .card-options {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.card-options {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.schedule-card:hover .card-options {
+  opacity: 1;
+}
+
+.schedule-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.schedule-item h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  transition: color 0.3s ease;
+  font-family: var(--body-font);
+}
+
+.schedule-time {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+  font-family: var(--body-font);
+  transition: color 0.3s ease;
+}
+
+.schedule-item + .schedule-item {
+  margin-top: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.6rem;
+}
+
+body[data-theme="dawn"] .schedule-item + .schedule-item {
+  border-top-color: rgba(15, 23, 42, 0.06);
+}
+
+.schedule-card.active-gradient .schedule-item + .schedule-item {
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+@media (max-width: 480px) {
+  .journey-schedule-container {
+    padding: 1.5rem 1rem;
+  }
+  .schedule-timeline::before {
+    left: 59px;
+  }
+  .schedule-label {
+    width: 45px;
+    font-size: 0.8rem;
+  }
+  .schedule-dot-container {
+    width: 30px;
+  }
+  .schedule-card {
+    padding: 0.9rem 1rem;
+  }
+  .schedule-item h4 {
+    font-size: 0.85rem;
+  }
+  .schedule-time {
+    font-size: 0.75rem;
+  }
 }
 
 .contact-card {
@@ -2334,36 +2572,59 @@ body[data-theme="dawn"] .timeline-item span {
   align-items: center;
   gap: 1.25rem;
   padding: 1rem 1.25rem;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  transition: all 0.3s ease;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.002) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 4px 15px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body[data-theme="dawn"] .contact-link-item {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.005) 100%);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 15px rgba(15, 23, 42, 0.02);
 }
 
 .contact-link-item:hover {
-  transform: translateX(4px);
-  border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px) translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+body[data-theme="dawn"] .contact-link-item:hover {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.06) 0%, rgba(15, 23, 42, 0.01) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 25px rgba(15, 23, 42, 0.04);
 }
 
 .contact-link-icon {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent);
   font-size: 1.1rem;
   transition: all 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body[data-theme="dawn"] .contact-link-icon {
+  background: rgba(15, 23, 42, 0.02);
+  border-color: rgba(15, 23, 42, 0.06);
 }
 
 .contact-link-item:hover .contact-link-icon {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(180, 130, 255, 0.3);
 }
 
 .contact-link-details {
@@ -2387,6 +2648,24 @@ body[data-theme="dawn"] .timeline-item span {
 
 .contact-form-card {
   padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(35px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(220%) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 25px 50px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 28px !important;
+}
+
+body[data-theme="dawn"] .contact-form-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(25px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 20px 40px rgba(31, 38, 135, 0.06) !important;
 }
 
 .contact-form {
@@ -2413,19 +2692,32 @@ body[data-theme="dawn"] .timeline-item span {
   width: 100%;
   padding: 0.85rem 1.1rem;
   border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.01);
   color: var(--text);
   font-family: inherit;
   font-size: 0.95rem;
   outline: none;
   transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="dawn"] .contact-input {
+  background: rgba(15, 23, 42, 0.01);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.02);
 }
 
 .contact-input:focus {
-  border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 10px rgba(180, 130, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="dawn"] .contact-input:focus {
+  border-color: rgba(15, 23, 42, 0.2);
+  background: rgba(15, 23, 42, 0.02);
+  box-shadow: 0 0 15px rgba(15, 23, 42, 0.03);
 }
 
 textarea.contact-input {

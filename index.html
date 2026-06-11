@@ -180,7 +180,7 @@
     </section>
 
 
-    <!-- ========================= 2. STACK TREE ========================= -->
+    <!--  2. STACK TREE ========================= -->
     <section class="learning-stacktree section" id="learning-stacktree">
       <div class="section-heading reveal">
         <p class="section-kicker">Stack Tree</p>
@@ -281,237 +281,238 @@
         <h2>Dashboard</h2>
       </div>
 
-        <!-- stats card with glassmorphism applied -->
-        <article class="stats-card reveal">
-          <!-- Header Block -->
-          <div class="header">
-            <div class="title-group">
-              <span class="orange-dot"></span>
-              <span class="panel-title">COMPETITIVE PROGRAMMING</span>
-              <span class="panel-subtitle">· STATS PANEL</span>
+      <!-- stats card with glassmorphism applied -->
+      <article class="stats-card reveal">
+        <!-- Header Block -->
+        <div class="header">
+          <div class="title-group">
+            <span class="orange-dot"></span>
+            <span class="panel-title">COMPETITIVE PROGRAMMING</span>
+            <span class="panel-subtitle">· STATS PANEL</span>
+          </div>
+          <div class="user-info">
+            USER: devhandle <span class="user-status">01:54:52</span>
+          </div>
+        </div>
+
+        <!-- Sub Navigation Tabs -->
+        <div class="tabs">
+          <div class="tab active">✦ LEETCODE</div>
+          <div class="tab">✦ HACKERRANK</div>
+          <div class="tab">✦ CODEFORCES</div>
+          <div class="tab">✦ CODECHEF</div>
+          <div class="tab">✦ GeeksforGeeks</div>
+        </div>
+
+        <!-- Tab Content Wrapper -->
+        <div id="stats-tab-content">
+          <!-- Upper Stats Summary Metrics Box Grid -->
+          <div class="summary-grid">
+            <div class="stat-card">
+              <div class="stat-value val-orange">48,312</div>
+              <div class="stat-label">Global Rank</div>
             </div>
-            <div class="user-info">
-              USER: devhandle <span class="user-status">01:54:52</span>
+            <div class="stat-card">
+              <div class="stat-value val-green">387</div>
+              <div class="stat-label">Problems Solved</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value val-blue">1,847</div>
+              <div class="stat-label">Contest Rating</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value val-orange">41</div>
+              <div class="stat-label">Streak (Days)</div>
             </div>
           </div>
 
-          <!-- Sub Navigation Tabs -->
-          <div class="tabs">
-            <div class="tab active">✦ LEETCODE</div>
-            <div class="tab">✦ HACKERRANK</div>
-            <div class="tab">✦ CODEFORCES</div>
-            <div class="tab">✦ CODECHEF</div>
-            <div class="tab">✦ GeeksforGeeks</div>
-          </div>
+          <!-- Main Content Layout splits Split Columns -->
+          <div class="main-content">
+            <!-- Left Panel: Solve Rate -->
+            <div class="panel-box">
+              <div class="box-header">Solve Rate · Arc Display</div>
 
-          <!-- Tab Content Wrapper -->
-          <div id="stats-tab-content">
-            <!-- Upper Stats Summary Metrics Box Grid -->
-            <div class="summary-grid">
-              <div class="stat-card">
-                <div class="stat-value val-orange">48,312</div>
-                <div class="stat-label">Global Rank</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-value val-green">387</div>
-                <div class="stat-label">Problems Solved</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-value val-blue">1,847</div>
-                <div class="stat-label">Contest Rating</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-value val-orange">41</div>
-                <div class="stat-label">Streak (Days)</div>
-              </div>
-            </div>
+              <div class="solve-rate-container">
+                <!-- Left Column (Circle) -->
+                <div class="solve-rate-left">
+                  <!-- Circular Arc Indicator -->
+                  <div class="circle-indicator-wrapper">
+                    <svg class="leetcode-svg" viewBox="0 0 100 100">
+                      <!-- Background Track with bottom gap (continuous, hidden by default) -->
+                      <circle id="graycircle" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)"
+                        stroke-width="6" stroke-dasharray="211.3 251.3" stroke-linecap="round"
+                        transform="rotate(120 50 50)" style="opacity: 0;" />
+                      <!-- Background Track Segments with cuts (visible by default) -->
+                      <circle class="track-segment" id="easytrack" cx="50" cy="50" r="40" fill="none"
+                        stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" stroke-dasharray="67 251.3"
+                        stroke-dashoffset="0" stroke-linecap="round" transform="rotate(120 50 50)" />
+                      <circle class="track-segment" id="medtrack" cx="50" cy="50" r="40" fill="none"
+                        stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" stroke-dasharray="67 251.3"
+                        stroke-dashoffset="-71" stroke-linecap="round" transform="rotate(120 50 50)" />
+                      <circle class="track-segment" id="hardtrack" cx="50" cy="50" r="40" fill="none"
+                        stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" stroke-dasharray="67 251.3"
+                        stroke-dashoffset="-142" stroke-linecap="round" transform="rotate(120 50 50)" />
+                      <!-- Easy Arc (green/teal) -->
+                      <circle id="easycircle" cx="50" cy="50" r="40" fill="none" stroke="#06b6d4" stroke-width="6"
+                        stroke-dasharray="67 251.3" stroke-dashoffset="0" stroke-linecap="round"
+                        transform="rotate(120 50 50)" />
+                      <!-- Medium Arc (yellow) -->
+                      <circle id="medcircle" cx="50" cy="50" r="40" fill="none" stroke="#fbbf24" stroke-width="6"
+                        stroke-dasharray="67 251.3" stroke-dashoffset="-71" stroke-linecap="round"
+                        transform="rotate(120 50 50)" />
+                      <!-- Hard Arc (red) -->
+                      <circle id="hardcircle" cx="50" cy="50" r="40" fill="none" stroke="#ef4444" stroke-width="6"
+                        stroke-dasharray="67 251.3" stroke-dashoffset="-142" stroke-linecap="round"
+                        transform="rotate(120 50 50)" />
+                    </svg>
 
-            <!-- Main Content Layout splits Split Columns -->
-            <div class="main-content">
-              <!-- Left Panel: Solve Rate -->
-              <div class="panel-box">
-                <div class="box-header">Solve Rate · Arc Display</div>
-                
-                <div class="solve-rate-container">
-                  <!-- Left Column (Circle) -->
-                  <div class="solve-rate-left">
-                    <!-- Circular Arc Indicator -->
-                    <div class="circle-indicator-wrapper">
-                      <svg class="leetcode-svg" viewBox="0 0 100 100">
-                        <!-- Background Track with bottom gap (continuous, hidden by default) -->
-                        <circle id="graycircle" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
-                                stroke-dasharray="211.3 251.3" stroke-linecap="round"
-                                transform="rotate(120 50 50)" style="opacity: 0;" />
-                        <!-- Background Track Segments with cuts (visible by default) -->
-                        <circle class="track-segment" id="easytrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="0" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                        <circle class="track-segment" id="medtrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="-71" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                        <circle class="track-segment" id="hardtrack" cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="-142" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                        <!-- Easy Arc (green/teal) -->
-                        <circle id="easycircle" cx="50" cy="50" r="40" fill="none" stroke="#06b6d4" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="0" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                        <!-- Medium Arc (yellow) -->
-                        <circle id="medcircle" cx="50" cy="50" r="40" fill="none" stroke="#fbbf24" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="-71" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                        <!-- Hard Arc (red) -->
-                        <circle id="hardcircle" cx="50" cy="50" r="40" fill="none" stroke="#ef4444" stroke-width="6" 
-                                stroke-dasharray="67 251.3" stroke-dashoffset="-142" stroke-linecap="round" 
-                                transform="rotate(120 50 50)" />
-                      </svg>
-
-                      <!-- Inner stats overlay -->
-                      <div class="circle-inner-content">
-                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
-                          <span class="solved-count">185</span>
-                          <span class="total-count">/3957</span>
-                        </div>
-                        <div class="solved-label">
-                          <i class="fa-solid fa-check" style="color: #22c55e; font-size: 0.75rem;"></i> Solved
-                        </div>
+                    <!-- Inner stats overlay -->
+                    <div class="circle-inner-content">
+                      <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
+                        <span class="solved-count">185</span>
+                        <span class="total-count">/3957</span>
                       </div>
-                    </div>
-                  </div>
-
-                  <!-- Right Column (Cards) -->
-                  <div class="solve-rate-right">
-                    <!-- Stacked Difficulty Cards -->
-                    <div class="difficulty-cards-stack">
-                      <!-- Easy -->
-                      <div class="diff-card-item">
-                        <span class="card-label-easy">Easy</span>
-                        <span class="card-values">80<span>/949</span></span>
-                      </div>
-
-                      <!-- Medium -->
-                      <div class="diff-card-item">
-                        <span class="card-label-medium">Med.</span>
-                        <span class="card-values">92<span>/2066</span></span>
-                      </div>
-
-                      <!-- Hard -->
-                      <div class="diff-card-item">
-                        <span class="card-label-hard">Hard</span>
-                        <span class="card-values">13<span>/942</span></span>
+                      <div class="solved-label">
+                        <i class="fa-solid fa-check" style="color: #22c55e; font-size: 0.75rem;"></i> Solved
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Right Panel: Badges -->
-              <div class="panel-box">
-                <div class="box-header">LeetCode Badges</div>
-                
-                <div class="badges-container">
-                  <!-- Knight Badge -->
-                  <div class="badge-item badge-knight">
-                    <div class="badge-icon-knight">
-                      <i class="fa-solid fa-chess-knight"></i>
+                <!-- Right Column (Cards) -->
+                <div class="solve-rate-right">
+                  <!-- Stacked Difficulty Cards -->
+                  <div class="difficulty-cards-stack">
+                    <!-- Easy -->
+                    <div class="diff-card-item">
+                      <span class="card-label-easy">Easy</span>
+                      <span class="card-values">80<span>/949</span></span>
                     </div>
-                    <div class="badge-name">Knight</div>
-                    <div class="badge-desc">Contest Rating Top 4.8%</div>
-                  </div>
 
-                  <!-- Streak Badge -->
-                  <div class="badge-item badge-streak">
-                    <div class="badge-icon-streak">
-                      <i class="fa-solid fa-calendar-check"></i>
+                    <!-- Medium -->
+                    <div class="diff-card-item">
+                      <span class="card-label-medium">Med.</span>
+                      <span class="card-values">92<span>/2066</span></span>
                     </div>
-                    <div class="badge-name">50 Days (2025)</div>
-                    <div class="badge-desc">Consecutive coding streak</div>
-                  </div>
-                </div>
 
-                <div class="meta-row">
-                  <span class="meta-label">Acceptance Rate</span>
-                  <span class="meta-val-blue">68.4%</span>
-                </div>
-                <div class="meta-row">
-                  <span class="meta-label">Contest Rank</span>
-                  <span class="meta-val-orange">Knight</span>
+                    <!-- Hard -->
+                    <div class="diff-card-item">
+                      <span class="card-label-hard">Hard</span>
+                      <span class="card-values">13<span>/942</span></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Heatmap Submission Matrix Row -->
-          <div class="heatmap-box">
-            <div class="box-header">Submission Activity · Last 52 Weeks</div>
-            <div class="heatmap-wrapper">
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-1"></div>
-              <div class="heatmap-cell cell-3"></div>
-              <div class="heatmap-cell cell-2"></div>
-              <div class="heatmap-cell cell-0"></div>
-              <div class="heatmap-cell cell-4"></div>
-              <div class="heatmap-cell cell-1"></div>
-            </div>
-            <div class="heatmap-legend" style="display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 9px; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
-              <span>Less</span>
-              <div class="heatmap-cell cell-0" style="margin: 0;"></div>
-              <div class="heatmap-cell cell-1" style="margin: 0;"></div>
-              <div class="heatmap-cell cell-2" style="margin: 0;"></div>
-              <div class="heatmap-cell cell-3" style="margin: 0;"></div>
-              <div class="heatmap-cell cell-4" style="margin: 0;"></div>
-              <span>More</span>
+            <!-- Right Panel: Badges -->
+            <div class="panel-box">
+              <div class="box-header">LeetCode Badges</div>
+
+              <div class="badges-container">
+                <!-- Knight Badge -->
+                <div class="badge-item badge-knight">
+                  <div class="badge-icon-knight">
+                    <i class="fa-solid fa-chess-knight"></i>
+                  </div>
+                  <div class="badge-name">Knight</div>
+                  <div class="badge-desc">Contest Rating Top 4.8%</div>
+                </div>
+
+                <!-- Streak Badge -->
+                <div class="badge-item badge-streak">
+                  <div class="badge-icon-streak">
+                    <i class="fa-solid fa-calendar-check"></i>
+                  </div>
+                  <div class="badge-name">50 Days (2025)</div>
+                  <div class="badge-desc">Consecutive coding streak</div>
+                </div>
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">Acceptance Rate</span>
+                <span class="meta-val-blue">68.4%</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Contest Rank</span>
+                <span class="meta-val-orange">Knight</span>
+              </div>
             </div>
           </div>
-        </article>
+        </div>
+
+        <!-- Heatmap Submission Matrix Row -->
+        <div class="heatmap-box">
+          <div class="box-header">Submission Activity · Last 52 Weeks</div>
+          <div class="heatmap-wrapper">
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-1"></div>
+            <div class="heatmap-cell cell-3"></div>
+            <div class="heatmap-cell cell-2"></div>
+            <div class="heatmap-cell cell-0"></div>
+            <div class="heatmap-cell cell-4"></div>
+            <div class="heatmap-cell cell-1"></div>
+          </div>
+          <div class="heatmap-legend"
+            style="display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 9px; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
+            <span>Less</span>
+            <div class="heatmap-cell cell-0" style="margin: 0;"></div>
+            <div class="heatmap-cell cell-1" style="margin: 0;"></div>
+            <div class="heatmap-cell cell-2" style="margin: 0;"></div>
+            <div class="heatmap-cell cell-3" style="margin: 0;"></div>
+            <div class="heatmap-cell cell-4" style="margin: 0;"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </article>
     </section>
 
 
@@ -652,29 +653,73 @@
           <p class="about-copy">From writing my first Hello World to building full-stack systems — here are the
             milestones that shaped my development path.</p>
         </div>
-        <div class="timeline-card reveal">
-          <div class="timeline-item">
-            <span>01</span>
-            <div>
-              <h3>Foundations</h3>
-              <p>Learned C, then Java — built a strong base in OOP, data structures, and algorithmic thinking through
-                competitive programming.</p>
-            </div>
+        <div class="journey-schedule-container reveal">
+          <div class="schedule-header">
+            <h3>My Journey</h3>
+            <p>Milestones &amp; Path</p>
           </div>
-          <div class="timeline-item">
-            <span>02</span>
-            <div>
-              <h3>Full Stack Phase</h3>
-              <p>Moved into web development — HTML, CSS, JavaScript, then React on the front end, Spring Boot on the
-                back end.</p>
+          <div class="schedule-timeline">
+            <!-- Phase 1 -->
+            <div class="schedule-row">
+              <div class="schedule-label">PH-01</div>
+              <div class="schedule-dot-container">
+                <div class="schedule-dot"></div>
+              </div>
+              <div class="schedule-card">
+                <div class="card-options"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                <div class="schedule-card-content">
+                  <div class="schedule-item">
+                    <h4>Foundations of CS</h4>
+                    <p class="schedule-time">[ C, Java &amp; OOP · 2021 ]</p>
+                  </div>
+                  <div class="schedule-item">
+                    <h4>Algorithms &amp; DSA</h4>
+                    <p class="schedule-time">[ Competitive Coding · 2022 ]</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="timeline-item">
-            <span>03</span>
-            <div>
-              <h3>Advanced Systems</h3>
-              <p>Now exploring microservices, Docker, system design patterns, and building production-grade
-                applications.</p>
+
+            <!-- Phase 2 -->
+            <div class="schedule-row">
+              <div class="schedule-label">PH-02</div>
+              <div class="schedule-dot-container">
+                <div class="schedule-dot"></div>
+              </div>
+              <div class="schedule-card">
+                <div class="card-options"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                <div class="schedule-card-content">
+                  <div class="schedule-item">
+                    <h4>Frontend Development</h4>
+                    <p class="schedule-time">[ React, HTML5, CSS3, JS · 2022 ]</p>
+                  </div>
+                  <div class="schedule-item">
+                    <h4>Backend Development</h4>
+                    <p class="schedule-time">[ Spring Boot &amp; Databases · 2023 ]</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="schedule-row active">
+              <div class="schedule-label">PH-03</div>
+              <div class="schedule-dot-container">
+                <div class="schedule-dot"></div>
+              </div>
+              <div class="schedule-card active-gradient">
+                <div class="card-options"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                <div class="schedule-card-content">
+                  <div class="schedule-item">
+                    <h4>Advanced Systems</h4>
+                    <p class="schedule-time">[ Microservices &amp; Design Patterns · 2024 ]</p>
+                  </div>
+                  <div class="schedule-item">
+                    <h4>DevOps &amp; Cloud</h4>
+                    <p class="schedule-time">[ Docker &amp; Production Deploy · 2025 ]</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
