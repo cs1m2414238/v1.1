@@ -63,7 +63,7 @@ html {
 }
 
 .section-heading.reveal {
-  padding-top: 10%;
+  padding-top: 1.5rem;
 }
 
 /* =========================
@@ -1887,12 +1887,20 @@ body[data-theme="dawn"] .schedule-card:hover {
 }
 
 .schedule-card.active-gradient {
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.55) 0%, rgba(77, 124, 15, 0.55) 100%) !important;
+  background: linear-gradient(135deg, rgba(180, 130, 255, 0.45) 0%, rgba(56, 189, 248, 0.45) 100%) !important;
   border-color: rgba(255, 255, 255, 0.25) !important;
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 10px 30px rgba(20, 184, 166, 0.25) !important;
+    0 10px 30px rgba(180, 130, 255, 0.2) !important;
   transform: translateY(-2px);
+}
+
+body[data-theme="dawn"] .schedule-card.active-gradient {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.8) 0%, rgba(244, 63, 94, 0.8) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 10px 30px rgba(79, 70, 229, 0.15) !important;
 }
 
 .schedule-card.active-gradient .schedule-item h4 {
@@ -1915,10 +1923,52 @@ body[data-theme="dawn"] .schedule-card:hover {
   font-size: 0.85rem;
   opacity: 0.5;
   transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .schedule-card:hover .card-options {
   opacity: 1;
+}
+
+.current-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 3px 8px 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body[data-theme="dawn"] .current-badge {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.08);
+  color: var(--text);
+}
+
+.current-badge::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 10px #10b981; }
+  100% { transform: scale(0.9); opacity: 0.6; }
 }
 
 .schedule-card-content {
@@ -2646,8 +2696,8 @@ body[data-theme="dawn"] .contact-link-icon {
   font-weight: 600;
 }
 
-.contact-form-card {
-  padding: 2.5rem;
+.contact-form-card,
+.personal-story-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(35px) saturate(220%) !important;
@@ -2658,7 +2708,8 @@ body[data-theme="dawn"] .contact-link-icon {
   border-radius: 28px !important;
 }
 
-body[data-theme="dawn"] .contact-form-card {
+body[data-theme="dawn"] .contact-form-card,
+body[data-theme="dawn"] .personal-story-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(25px) saturate(180%) !important;
@@ -2666,6 +2717,32 @@ body[data-theme="dawn"] .contact-form-card {
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     0 20px 40px rgba(31, 38, 135, 0.06) !important;
+}
+
+.contact-form-card {
+  padding: 2.5rem;
+}
+
+.personal-story-card {
+  grid-column: 1 / -1;
+  padding: 2.2rem 2.5rem;
+}
+
+.waving-hand {
+  display: inline-block;
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
 }
 
 .contact-form {
